@@ -1,4 +1,4 @@
-package com.webCFD.webCFDapp.Fields;
+package com.webCFD.webCFDapp.entities;
 
 public class HeatGenerationField {
 
