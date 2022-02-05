@@ -22,7 +22,16 @@ import com.webCFD.webCFDapp.entities.HeatGenerationField;
 @Service
 public class HeatGenerationFieldService {
 	
-	
+	public String createHeatGenerationField(double kQ) {
+		
+				
+		HeatGenerationField heatGenerationField = new HeatGenerationField(1.00);
+		
+		heatGenerationField.buildField();
+		
+		return "done";
+		
+	}
 	
 	
 
