@@ -8,24 +8,43 @@ public class HeatGenerationField {
 	
 	
 	private double kQ;
+	
+	public double [][] returnableArray = new double [PWR.SIZE][PWR.SIZE];
 
-	private double [][] returnableArray = new double [PWRConstants.SIZE][PWRConstants.SIZE];
-	
-	
 	public HeatGenerationField(double kQ) {
-		this.kQ = kQ;
+		this.kQ=kQ;
 	}
 	
-	private void buildHeatGenerationField() {
+	
+	public void buildField() {
 		
-		for(int i = 0; i < PWRConstants.SIZE; i++) {
-			for (int j = 0; j < PWRConstants.SIZE; j++) {
-				
-				
-				
+		for (int i = 0; i < PWR.SIZE; i++) {
+			for (int j = 0; j < PWR.SIZE; j++) {
+				returnableArray[i][j] = 1;
+			}
+		}
+		
+		printMatrix(returnableArray);
+	}
+	
+	private void printMatrix(double [][] printingArray) {
+		for (int i = 0; i < PWR.SIZE; i++) {
+			for (int j = 0; j < PWR.SIZE; j++) {
+				System.out.println(printingArray[i][j]);
 			}
 		}
 	}
 	
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

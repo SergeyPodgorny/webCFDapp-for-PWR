@@ -9,11 +9,11 @@ package com.webCFD.webCFDapp.entities;
  */
 
 
-public class PWRConstants {
+public class PWR {
 	
 	
 	
-	private PWRConstants() {
+	private PWR() {
 		
 	}
 	
