@@ -1,5 +1,7 @@
 package com.webCFD.webCFDapp.service;
 
+
+
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.entities.HeatGenerationField;
@@ -22,14 +24,24 @@ import com.webCFD.webCFDapp.entities.HeatGenerationField;
 @Service
 public class HeatGenerationFieldService {
 	
-	public String createHeatGenerationField(double kQ) {
+	public String createHeatGenerationField() {
 		
-				
+		long startTime = System.nanoTime();
+		
 		HeatGenerationField heatGenerationField = new HeatGenerationField(1.00);
 		
 		heatGenerationField.buildField();
 		
-		return "done";
+		long endTime = System.nanoTime();
+		
+		long duration = (endTime - startTime) / 1000000;
+		
+		StringBuilder outputMessage = new StringBuilder("done, execution time: ");
+		
+		outputMessage.append(duration)
+					.append(" milliseconds");
+		
+		return outputMessage.toString();
 		
 	}
 	

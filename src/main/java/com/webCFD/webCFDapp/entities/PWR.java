@@ -33,7 +33,7 @@ public class PWR {
 	
 	public static final double INLET_TEMP = 291.9;
 	
-	public static final int SIZE = 15;
+	public static final int SIZE = 1500; // TODO set this value to default 15 later
 	
 	public static final double MASS_FLOW = 0.342;
 	
