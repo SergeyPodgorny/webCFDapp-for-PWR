@@ -20,9 +20,7 @@ public class WebCfDappApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		HeatGenerationField field = new HeatGenerationField(1.00);
 		
-		field.buildField();
 		
 	}
 
