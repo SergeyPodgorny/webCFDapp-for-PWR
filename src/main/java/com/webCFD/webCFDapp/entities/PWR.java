@@ -29,11 +29,11 @@ public class PWR {
 		
 	}
 	
-	public static final double THERMAL_POWER = 1004180.41;
+	public static final double THERMAL_POWER = 236380000;
 	
 	public static final double INLET_TEMP = 291.9;
 	
-	public static final int SIZE = 1500; // TODO set this value to default 15 later
+	public static final int SIZE = 17; // TODO set this value to default 17 later
 	
 	public static final double MASS_FLOW = 0.342;
 	

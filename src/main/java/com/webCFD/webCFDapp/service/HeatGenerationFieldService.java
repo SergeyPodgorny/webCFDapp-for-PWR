@@ -2,6 +2,11 @@ package com.webCFD.webCFDapp.service;
 
 
 
+
+
+import java.time.Duration;
+import java.time.Instant;
+
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.entities.HeatGenerationField;
@@ -14,7 +19,7 @@ import com.webCFD.webCFDapp.entities.HeatGenerationField;
  * 
  *	This class provides calculations of a heat generation field with parameter kQ, which represents how much a field we want create differs from the field which represents the normal operation of a reactor. <br><br>
  *
- *	The kQ paramater is a value which comes with HTTP request.
+ *	The kQ parameter is a value which comes with HTTP request.
  * 
  * @author Sergey Podgorny
  *
@@ -26,20 +31,19 @@ public class HeatGenerationFieldService {
 	
 	public String createHeatGenerationField() {
 		
-		long startTime = System.nanoTime();
+		Instant startTime = Instant.now();
 		
 		HeatGenerationField heatGenerationField = new HeatGenerationField(1.00);
 		
 		heatGenerationField.buildField();
 		
-		long endTime = System.nanoTime();
+		Instant endTime = Instant.now();
 		
-		long duration = (endTime - startTime) / 1000000;
+		long duration = Duration.between(startTime, endTime).toMillis();
 		
 		StringBuilder outputMessage = new StringBuilder("done, execution time: ");
 		
-		outputMessage.append(duration)
-					.append(" milliseconds");
+		outputMessage.append(duration).append(" milliseconds");
 		
 		return outputMessage.toString();
 		

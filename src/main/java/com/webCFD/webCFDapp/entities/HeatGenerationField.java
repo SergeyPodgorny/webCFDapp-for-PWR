@@ -1,18 +1,28 @@
 package com.webCFD.webCFDapp.entities;
 
+import java.util.Arrays;
 
 
+/**
+ * <h3> HeatGenerationField Class</h3>
+ * <p>  This class represents a field of heat sources, which is imitating a volume heat generation in a model of an active core.<br>
+ * Low resolution of a model (only 15*15 cells) causing side effects on mass-average and maximum temperatures.<br>
+ * Those side effects are eliminated by adding boundary conditions.<br>
+ * Adding boundary conditions requires adding sparse elements on perimeter of a model, so that is the reason why we need to set up a sparse matrix with extra size.
+ *  
+ * 
+ * @author Sergey Podgorny
+ *
+ */
 
-
-public class HeatGenerationField {
+public class HeatGenerationField extends Matrix{
 	
 	
 	
-	@SuppressWarnings("unused")
+	
 	private double kQ;
 	
-	public double [][] returnableArray = new double [PWR.SIZE][PWR.SIZE];
-
+	
 	
 	public HeatGenerationField(double kQ) {
 		super();
@@ -22,22 +32,25 @@ public class HeatGenerationField {
 
 	public void buildField() {
 		
-		for (int i = 0; i < PWR.SIZE; i++) {
-			for (int j = 0; j < PWR.SIZE; j++) {
-				returnableArray[i][j] = 1;
+		buildSparseMatrix();
+		
+		
+		for (int i = 1; i < PWR.SIZE-1; i++) {
+			for (int j = 1; j < PWR.SIZE-1; j++) {
+				sparseMatrix[i][j] = kQ*PWR.THERMAL_POWER*Math.cos(0.20279*i-1.6223)*Math.cos(0.17346*j-1.3877);
 			}
 		}
 		
-//		printMatrix(returnableArray);
+		printMatrix(sparseMatrix);
 	}
 	
-//	private void printMatrix(double [][] printingArray) {
-//		for (int i = 0; i < PWR.SIZE; i++) {
-//			for (int j = 0; j < PWR.SIZE; j++) {
-//				System.out.println(printingArray[i][j]);
-//			}
-//		}
-//	}
+	private void printMatrix(double [][] printingArray) {
+		
+		System.out.println(Arrays.deepToString(printingArray).replace("], ", "]\n"));
+			}
+			
+		
+	}
 	
 	
 	
@@ -51,4 +64,4 @@ public class HeatGenerationField {
 	
 	
 	
-}
+
