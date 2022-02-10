@@ -15,7 +15,7 @@ import java.util.Arrays;
  *
  */
 
-public class HeatGenerationField extends Matrix{
+public class HeatGenerationField extends SparseMatrix{
 	
 	
 	

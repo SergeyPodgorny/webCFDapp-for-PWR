@@ -14,7 +14,7 @@ package com.webCFD.webCFDapp.entities;
 
 
 
-public abstract class Matrix extends Thread{
+public abstract class SparseMatrix extends Thread{
 	
 	protected double [][] sparseMatrix = new double [PWR.SIZE][PWR.SIZE];
 	
