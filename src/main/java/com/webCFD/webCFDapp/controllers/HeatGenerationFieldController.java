@@ -1,10 +1,11 @@
 package com.webCFD.webCFDapp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.webCFD.webCFDapp.dto.FieldCoefficientsDTO;
 import com.webCFD.webCFDapp.service.HeatGenerationFieldService;
 
 @RestController
@@ -18,10 +19,20 @@ public class HeatGenerationFieldController {
 		this.heatgenerationFieldService = heatgenerationFieldService;
 	}
 	
-	@GetMapping("/index/{kQ}")
-	public String heatGenerationFieldController(@PathVariable double kQ) {
-		return heatgenerationFieldService.createHeatGenerationField(kQ);
+	@PostMapping("heatGenerationField")
+	public String createHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) {
+		return heatgenerationFieldService.createHeatGenerationField(fieldCoefficientsDTO.getkQ());
 	}
+	
+	
+	
+	
+	
+	
+//	@GetMapping("/index/{kQ}")
+//	public String heatGenerationFieldController(@PathVariable double kQ) {
+//		return heatgenerationFieldService.createHeatGenerationField(kQ);
+//	}
 	
 	
 	
