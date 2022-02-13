@@ -12,8 +12,8 @@ public class FieldCoefficientsDTO {
 	private double kG;
 	
 	
-	public FieldCoefficientsDTO(double kQ) {
-		this.kQ = kQ;
+	public FieldCoefficientsDTO() {
+		
 	}
 
 
