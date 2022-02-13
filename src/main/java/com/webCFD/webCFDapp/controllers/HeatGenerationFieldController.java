@@ -10,14 +10,13 @@ import com.webCFD.webCFDapp.service.HeatGenerationFieldService;
 @RestController
 public class HeatGenerationFieldController {
 
-	@Autowired	
+		
 	private final HeatGenerationFieldService heatgenerationFieldService;
 	
-	
+	@Autowired
 	public HeatGenerationFieldController(HeatGenerationFieldService heatgenerationFieldService) {
 		this.heatgenerationFieldService = heatgenerationFieldService;
 	}
-	
 	
 	@GetMapping("/index/{kQ}")
 	public String heatGenerationFieldController(@PathVariable double kQ) {

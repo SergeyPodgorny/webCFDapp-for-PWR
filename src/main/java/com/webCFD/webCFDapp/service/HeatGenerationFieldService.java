@@ -33,8 +33,15 @@ import com.webCFD.webCFDapp.entities.HeatGenerationField;
 @Service
 public class HeatGenerationFieldService {
 	
+	
+	private final HeatGenerationField heatGenerationField;
+	
+	
 	@Autowired
-	private HeatGenerationField heatGenerationField;
+	public HeatGenerationFieldService(HeatGenerationField heatGenerationField) {
+		this.heatGenerationField = heatGenerationField;
+	}
+	
 		
 	public String createHeatGenerationField(double kQ) {
 		
