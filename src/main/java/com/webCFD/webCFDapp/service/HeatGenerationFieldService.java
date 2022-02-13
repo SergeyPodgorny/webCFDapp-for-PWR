@@ -7,6 +7,7 @@ package com.webCFD.webCFDapp.service;
 import java.time.Duration;
 import java.time.Instant;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.entities.HeatGenerationField;
@@ -26,24 +27,28 @@ import com.webCFD.webCFDapp.entities.HeatGenerationField;
  */
 
 
+
+
+
 @Service
 public class HeatGenerationFieldService {
 	
-	public String createHeatGenerationField() {
+	@Autowired
+	private HeatGenerationField heatGenerationField;
+		
+	public String createHeatGenerationField(double kQ) {
 		
 		Instant startTime = Instant.now();
 		
-		HeatGenerationField heatGenerationField = new HeatGenerationField(1.00);
-		
-		heatGenerationField.buildField();
+		heatGenerationField.buildHeatGenerationField(kQ);
 		
 		Instant endTime = Instant.now();
 		
-		long duration = Duration.between(startTime, endTime).toMillis();
+		long buildingTime = Duration.between(startTime, endTime).toMillis();
 		
 		StringBuilder outputMessage = new StringBuilder("done, execution time: ");
 		
-		outputMessage.append(duration).append(" milliseconds");
+		outputMessage.append(buildingTime).append(" milliseconds");
 		
 		return outputMessage.toString();
 		

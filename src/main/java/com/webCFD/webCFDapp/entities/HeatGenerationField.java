@@ -2,6 +2,8 @@ package com.webCFD.webCFDapp.entities;
 
 import java.util.Arrays;
 
+import org.springframework.stereotype.Component;
+
 
 /**
  * <h3> HeatGenerationField Class</h3>
@@ -14,23 +16,14 @@ import java.util.Arrays;
  * @author Sergey Podgorny
  *
  */
-
+@Component
 public class HeatGenerationField extends SparseMatrix{
-	
-	
 	
 	
 	private double kQ;
 	
 	
-	
-	public HeatGenerationField(double kQ) {
-		super();
-		this.kQ = kQ;
-	}
-
-
-	public void buildField() {
+	public void buildHeatGenerationField(double kQ) {
 		
 		buildSparseMatrix();
 		
@@ -48,7 +41,11 @@ public class HeatGenerationField extends SparseMatrix{
 		
 		System.out.println(Arrays.deepToString(printingArray).replace("], ", "]\n"));
 			}
-			
+	
+	
+
+	
+	
 		
 	}
 	
