@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 /**
  * <h3> HeatGenerationField Class</h3>
  * <p>  This class represents a field of heat sources, which is imitating a volume heat generation in a model of an active core.<br>
- * Low resolution of a model (only 15*15 cells) causing side effects on mass-average and maximum temperatures.<br>
+ * Low resolution of a model (only 15*15 cells) causing side effects on mass-average and maximum temperature values.<br>
  * Those side effects are eliminated by adding boundary conditions.<br>
- * Adding boundary conditions requires adding sparse elements on perimeter of a model, so that is the reason why we need to set up a sparse matrix with extra size.
+ * Adding boundary conditions requires adding sparse elements on perimeter of a model, so that is the reason why we need to set up a sparse matrix first with extra size, and only then we fill it with values
  *  
  * 
  * @author Sergey Podgorny
@@ -18,9 +18,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class HeatGenerationField extends SparseMatrix{
-	
-	
-	private double kQ;
 	
 	
 	public void buildHeatGenerationField(double kQ) {
@@ -42,11 +39,6 @@ public class HeatGenerationField extends SparseMatrix{
 		System.out.println(Arrays.deepToString(printingArray).replace("], ", "]\n"));
 			}
 	
-	
-
-	
-	
-		
 	}
 	
 	

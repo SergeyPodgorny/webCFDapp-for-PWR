@@ -19,7 +19,7 @@ public class HeatGenerationFieldController {
 		this.heatgenerationFieldService = heatgenerationFieldService;
 	}
 	
-	@PostMapping("heatGenerationField")
+	@PostMapping("heatGenerationField/create")
 	public String createHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) {
 		return heatgenerationFieldService.createHeatGenerationField(fieldCoefficientsDTO.getkQ());
 	}
