@@ -10,7 +10,7 @@ import java.time.Instant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.webCFD.webCFDapp.entities.HeatGenerationField;
+import com.webCFD.webCFDapp.components.HeatGenerationField;
 
 
 /**

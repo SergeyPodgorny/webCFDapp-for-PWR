@@ -1,6 +1,6 @@
-package com.webCFD.webCFDapp.entities;
+package com.webCFD.webCFDapp.templates;
 
-
+import com.webCFD.webCFDapp.constants.PWR;
 
 /**<h3>Abstract Matrix Class</h3>
  * 

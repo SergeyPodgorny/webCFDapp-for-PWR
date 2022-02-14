@@ -1,8 +1,13 @@
-package com.webCFD.webCFDapp.entities;
+package com.webCFD.webCFDapp.components;
 
 import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
+
+import com.webCFD.webCFDapp.templates.SparseMatrix;
+
+import static com.webCFD.webCFDapp.constants.PWR.THERMAL_POWER;
+import static com.webCFD.webCFDapp.constants.PWR.SIZE;
 
 
 /**
@@ -25,13 +30,15 @@ public class HeatGenerationField extends SparseMatrix{
 		buildSparseMatrix();
 		
 		
-		for (int i = 1; i < PWR.SIZE-1; i++) {
-			for (int j = 1; j < PWR.SIZE-1; j++) {
-				sparseMatrix[i][j] = kQ*PWR.THERMAL_POWER*Math.cos(0.20279*i-1.6223)*Math.cos(0.17346*j-1.3877);
+		for (int i = 1; i < SIZE-1; i++) {
+			for (int j = 1; j < SIZE-1; j++) {
+				sparseMatrix[i][j] = kQ*THERMAL_POWER*Math.cos(0.20279*i-1.6223)*Math.cos(0.17346*j-1.3877);
 			}
 		}
 		
 		printMatrix(sparseMatrix);
+		
+		
 	}
 	
 	private void printMatrix(double [][] printingArray) {

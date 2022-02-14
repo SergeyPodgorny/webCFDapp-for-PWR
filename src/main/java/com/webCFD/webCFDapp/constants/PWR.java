@@ -1,4 +1,4 @@
-package com.webCFD.webCFDapp.entities;
+package com.webCFD.webCFDapp.constants;
 
 
 /**
