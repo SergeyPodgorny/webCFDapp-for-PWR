@@ -52,7 +52,7 @@ public class HeatGenerationFieldService {
 		
 		heatGenerationField.buildHeatGenerationField(kQ);
 		
-		FileOutputStream file = new FileOutputStream("Test/testSitetest.txt");
+		FileOutputStream file = new FileOutputStream("serializedObjects/HGF.txt");
 		
 		ObjectOutputStream writer = new ObjectOutputStream(file);
 		
