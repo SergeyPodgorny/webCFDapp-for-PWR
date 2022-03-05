@@ -73,12 +73,10 @@ public class HeatGenerationFieldService {
 				
 				outputMessage.append("done, execution time: ").append(buildingTime).append(" milliseconds");
 				
-				
-				
 			} else {
 				
 				outputMessage.append("Can't write a file, it is already exist");
-				System.out.println(checkExistance.exists());
+				
 			}
 			
 			return outputMessage.toString();		
