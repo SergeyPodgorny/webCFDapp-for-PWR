@@ -4,6 +4,9 @@ package com.webCFD.webCFDapp.service;
 
 
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -43,11 +46,17 @@ public class HeatGenerationFieldService {
 	}
 	
 		
-	public String createHeatGenerationField(double kQ) {
+	public String writeNewHeatGenerationField(double kQ) throws IOException {
 		
 		Instant startTime = Instant.now();
 		
 		heatGenerationField.buildHeatGenerationField(kQ);
+		
+		FileOutputStream file = new FileOutputStream("Test/testSitetest.txt");
+		
+		ObjectOutputStream writer = new ObjectOutputStream(file);
+		
+		writer.writeObject(heatGenerationField.getField());
 		
 		Instant endTime = Instant.now();
 		

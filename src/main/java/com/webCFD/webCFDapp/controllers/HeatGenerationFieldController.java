@@ -1,5 +1,7 @@
 package com.webCFD.webCFDapp.controllers;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,8 +22,8 @@ public class HeatGenerationFieldController {
 	}
 	
 	@PostMapping("heatGenerationField/create")
-	public String createHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) {
-		return heatgenerationFieldService.createHeatGenerationField(fieldCoefficientsDTO.getkQ());
+	public String writeHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws IOException {
+		return heatgenerationFieldService.writeNewHeatGenerationField(fieldCoefficientsDTO.getkQ());
 	}
 	
 	

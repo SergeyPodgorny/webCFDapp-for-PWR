@@ -1,5 +1,7 @@
 package com.webCFD.webCFDapp.templates;
 
+import java.io.Serializable;
+
 import com.webCFD.webCFDapp.constants.PWR;
 
 /**<h3>Abstract Matrix Class</h3>
@@ -14,7 +16,7 @@ import com.webCFD.webCFDapp.constants.PWR;
 
 
 
-public abstract class SparseMatrix extends Thread{
+public abstract class SparseMatrix extends Thread implements Serializable{
 	
 	protected double [][] sparseMatrix = new double [PWR.SIZE][PWR.SIZE];
 	

@@ -23,7 +23,7 @@ import static com.webCFD.webCFDapp.constants.PWR.SIZE;
  *
  */
 @Component
-public class HeatGenerationField extends SparseMatrix implements Serializable{
+public class HeatGenerationField extends SparseMatrix{
 	
 	
 	/**
@@ -51,6 +51,11 @@ public class HeatGenerationField extends SparseMatrix implements Serializable{
 		
 		System.out.println(Arrays.deepToString(printingArray).replace("], ", "]\n"));
 			}
+	
+	public double[][] getField(){
+		return sparseMatrix;
+	}
+	
 	
 	}
 	
