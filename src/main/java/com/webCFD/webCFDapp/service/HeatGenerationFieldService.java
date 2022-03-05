@@ -57,7 +57,7 @@ public class HeatGenerationFieldService {
 		
 		File checkExistance = new File(writePath.toString());
 		
-			if (true) {
+			if (checkExistance.exists() == false) {
 				
 				heatGenerationField.buildHeatGenerationField(kQ);
 				
@@ -73,10 +73,12 @@ public class HeatGenerationFieldService {
 				
 				outputMessage.append("done, execution time: ").append(buildingTime).append(" milliseconds");
 				
+				
+				
 			} else {
 				
 				outputMessage.append("Can't write a file, it is already exist");
-				
+				System.out.println(checkExistance.exists());
 			}
 			
 			return outputMessage.toString();		
