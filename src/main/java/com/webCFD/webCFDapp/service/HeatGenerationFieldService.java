@@ -50,11 +50,11 @@ public class HeatGenerationFieldService {
 		
 		Instant startTime = Instant.now();
 		
-		
+		StringBuilder writePath = new StringBuilder("serializedObjects/HeatGenerationFields/" + kQ.toString() + ".txt");
 		
 		heatGenerationField.buildHeatGenerationField(kQ);
 		
-		FileOutputStream file = new FileOutputStream("serializedObjects/HeatGenerationFields/" + kQ.toString() + ".txt");
+		FileOutputStream file = new FileOutputStream(writePath.toString());
 		
 		ObjectOutputStream writer = new ObjectOutputStream(file);
 		
