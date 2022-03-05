@@ -1,6 +1,6 @@
 package com.webCFD.webCFDapp.dto;
 
-import javax.persistence.Entity;
+
 
 
 public class FieldCoefficientsDTO {

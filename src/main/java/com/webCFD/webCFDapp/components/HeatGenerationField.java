@@ -1,5 +1,6 @@
 package com.webCFD.webCFDapp.components;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
@@ -22,9 +23,14 @@ import static com.webCFD.webCFDapp.constants.PWR.SIZE;
  *
  */
 @Component
-public class HeatGenerationField extends SparseMatrix{
+public class HeatGenerationField extends SparseMatrix implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void buildHeatGenerationField(double kQ) {
 		
 		buildSparseMatrix();
