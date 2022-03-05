@@ -46,13 +46,15 @@ public class HeatGenerationFieldService {
 	}
 	
 		
-	public String writeNewHeatGenerationField(double kQ) throws IOException {
+	public String writeNewHeatGenerationField(Double kQ) throws IOException {
 		
 		Instant startTime = Instant.now();
 		
+		
+		
 		heatGenerationField.buildHeatGenerationField(kQ);
 		
-		FileOutputStream file = new FileOutputStream("serializedObjects/HGF.txt");
+		FileOutputStream file = new FileOutputStream("serializedObjects/HeatGenerationFields/" + kQ.toString() + ".txt");
 		
 		ObjectOutputStream writer = new ObjectOutputStream(file);
 		

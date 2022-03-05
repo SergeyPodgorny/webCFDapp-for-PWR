@@ -5,11 +5,11 @@ package com.webCFD.webCFDapp.dto;
 
 public class FieldCoefficientsDTO {
 	
-	private double kQ;
+	private Double kQ;
 	
-	private double kT;
+	private Double kT;
 	
-	private double kG;
+	private Double kG;
 	
 	
 	public FieldCoefficientsDTO() {
@@ -22,7 +22,7 @@ public class FieldCoefficientsDTO {
 	}
 
 
-	public void setkQ(double kQ) {
+	public void setkQ(Double kQ) {
 		this.kQ = kQ;
 	}
 
@@ -32,7 +32,7 @@ public class FieldCoefficientsDTO {
 	}
 
 
-	public void setkT(double kT) {
+	public void setkT(Double kT) {
 		this.kT = kT;
 	}
 
@@ -42,7 +42,7 @@ public class FieldCoefficientsDTO {
 	}
 
 
-	public void setkG(double kG) {
+	public void setkG(Double kG) {
 		this.kG = kG;
 	}
 	

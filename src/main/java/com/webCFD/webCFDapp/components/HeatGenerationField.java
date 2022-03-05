@@ -31,7 +31,7 @@ public class HeatGenerationField extends SparseMatrix{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public void buildHeatGenerationField(double kQ) {
+	public void buildHeatGenerationField(Double kQ) {
 		
 		buildSparseMatrix();
 		
