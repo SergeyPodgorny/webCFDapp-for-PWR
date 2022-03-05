@@ -4,6 +4,7 @@ package com.webCFD.webCFDapp.service;
 
 
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -52,23 +53,33 @@ public class HeatGenerationFieldService {
 		
 		StringBuilder writePath = new StringBuilder("serializedObjects/HeatGenerationFields/" + kQ.toString() + ".txt");
 		
-		heatGenerationField.buildHeatGenerationField(kQ);
+		StringBuilder outputMessage = new StringBuilder();
 		
-		FileOutputStream file = new FileOutputStream(writePath.toString());
+		File checkExistance = new File(writePath.toString());
 		
-		ObjectOutputStream writer = new ObjectOutputStream(file);
-		
-		writer.writeObject(heatGenerationField.getField());
-		
-		Instant endTime = Instant.now();
-		
-		long buildingTime = Duration.between(startTime, endTime).toMillis();
-		
-		StringBuilder outputMessage = new StringBuilder("done, execution time: ");
-		
-		outputMessage.append(buildingTime).append(" milliseconds");
-		
-		return outputMessage.toString();
+			if (true) {
+				
+				heatGenerationField.buildHeatGenerationField(kQ);
+				
+				FileOutputStream file = new FileOutputStream(writePath.toString());
+				
+				ObjectOutputStream writer = new ObjectOutputStream(file);
+				
+				writer.writeObject(heatGenerationField.getField());
+				
+				Instant endTime = Instant.now();
+				
+				long buildingTime = Duration.between(startTime, endTime).toMillis();
+				
+				outputMessage.append("done, execution time: ").append(buildingTime).append(" milliseconds");
+				
+			} else {
+				
+				outputMessage.append("Can't write a file, it is already exist");
+				
+			}
+			
+			return outputMessage.toString();		
 		
 	}
 	
