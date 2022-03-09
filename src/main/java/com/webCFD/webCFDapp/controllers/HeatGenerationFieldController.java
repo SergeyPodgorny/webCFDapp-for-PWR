@@ -3,6 +3,7 @@ package com.webCFD.webCFDapp.controllers;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,8 +24,9 @@ public class HeatGenerationFieldController {
 		this.heatgenerationFieldService = heatgenerationFieldService;
 	}
 	
+	
 	@PostMapping("heatGenerationField/create")
-	public String writeHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws IOException,HeatGenerationFieldNotFoundException, HeatGenerationFieldExistException {
+	public String writeHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws IOException, HeatGenerationFieldExistException {
 		try {
 			return heatgenerationFieldService.writeNewHeatGenerationField(fieldCoefficientsDTO.getkQ());
 		} catch (HeatGenerationFieldExistException e) {
@@ -33,7 +35,10 @@ public class HeatGenerationFieldController {
 	}
 	
 	
-	
+	@DeleteMapping("heatGenerationField/delete")
+	public String deleteHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) {
+		return null;
+	}
 	
 	
 	

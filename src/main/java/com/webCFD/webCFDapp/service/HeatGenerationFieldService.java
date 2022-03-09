@@ -49,7 +49,7 @@ public class HeatGenerationFieldService {
 	}
 	
 		
-	public String writeNewHeatGenerationField(Double kQ) throws IOException, HeatGenerationFieldNotFoundException, HeatGenerationFieldExistException{
+	public String writeNewHeatGenerationField(Double kQ) throws IOException, HeatGenerationFieldExistException{
 		
 		Instant startTime = Instant.now();
 		

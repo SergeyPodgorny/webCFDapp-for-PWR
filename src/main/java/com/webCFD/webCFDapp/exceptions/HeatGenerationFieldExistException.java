@@ -1,6 +1,6 @@
 package com.webCFD.webCFDapp.exceptions;
 
-public class HeatGenerationFieldExistException extends Exception{
+public class HeatGenerationFieldExistException extends RuntimeException{
 
 	
 	
