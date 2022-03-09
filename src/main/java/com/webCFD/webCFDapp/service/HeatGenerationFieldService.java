@@ -67,6 +67,8 @@ public class HeatGenerationFieldService {
 				
 				fileWriter.writeObject(heatGenerationField.getField(kQ));
 				
+				fileWriter.close();
+				
 				Instant endTime = Instant.now();
 				
 				long buildingTime = Duration.between(startTime, endTime).toMillis();
@@ -81,15 +83,27 @@ public class HeatGenerationFieldService {
 		
 	}
 	
-	public String deleteHeatgenerationField(Double kQ) throws HeatGenerationFieldNotFoundException{
+	public String deleteHeatgenerationField(Double kQ) throws HeatGenerationFieldNotFoundException {
 		
 		Instant startTime = Instant.now();
 		
+		StringBuilder outputMessage = new StringBuilder();
+		
 		StringBuilder deletePath = new StringBuilder("serializedObjects/HeatGenerationFields/" + kQ.toString() + ".txt");
 		
+		File file = new File(deletePath.toString());
+		
+			if (file.exists() == true) {
+			
+				file.delete();
+			
+				Instant endTime = Instant.now();
+			
+				return outputMessage.append("Requesting heat generation filed with " + kQ.toString() + " deleted, execution time:" + Duration.between(endTime, startTime).toMillis()).toString();
+		
+			} throw new HeatGenerationFieldNotFoundException("Can't delete the file, it does not exist");
 		
 		
-		return null;
 	}
 	
 	
