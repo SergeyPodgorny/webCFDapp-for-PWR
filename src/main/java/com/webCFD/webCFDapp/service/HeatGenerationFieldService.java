@@ -71,13 +71,11 @@ public class HeatGenerationFieldService {
 				
 				Instant endTime = Instant.now();
 				
-				long buildingTime = Duration.between(startTime, endTime).toMillis();
-				
-				outputMessage.append("Heat generation field with kQ = ").append(kQ.toString()).append(" created, execution time: \"").append(buildingTime).append(" milliseconds");
+				outputMessage.append("Heat generation field with kQ = ").append(kQ.toString()).append(" created, execution time: ").append(Duration.between(startTime, endTime).toMillis()).append(" milliseconds.");
 				
 				return outputMessage.toString();
 				
-			} throw new HeatGenerationFieldFoundException("Error, heat generation field already exists.");
+			} throw new HeatGenerationFieldFoundException("Error, requesting heat generation field already exists.");
 			
 					
 		
@@ -99,9 +97,9 @@ public class HeatGenerationFieldService {
 			
 				Instant endTime = Instant.now();
 			
-				return outputMessage.append("Requesting heat generation filed with " + kQ.toString() + " deleted, execution time:" + Duration.between(endTime, startTime).toMillis()).toString();
+				return outputMessage.append("Heat generation field with kQ = " + kQ.toString() + " deleted, execution time: " + Duration.between(endTime, startTime).toMillis()).append(" milliseconds.").toString();
 		
-			} throw new HeatGenerationFieldNotFoundException("Can't delete the file, it does not exist");
+			} throw new HeatGenerationFieldNotFoundException("Error, requesting heat generation field does not exist.");
 		
 		
 	}
