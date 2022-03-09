@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.components.HeatGenerationField;
-import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldExistException;
+import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
 
 
@@ -49,7 +49,7 @@ public class HeatGenerationFieldService {
 	}
 	
 		
-	public String writeNewHeatGenerationField(Double kQ) throws IOException, HeatGenerationFieldExistException{
+	public String writeNewHeatGenerationField(Double kQ) throws IOException, HeatGenerationFieldFoundException{
 		
 		Instant startTime = Instant.now();
 		
@@ -75,11 +75,34 @@ public class HeatGenerationFieldService {
 				
 				return outputMessage.toString();
 				
-			} throw new HeatGenerationFieldExistException("Error, heat generation field already exists.");
+			} throw new HeatGenerationFieldFoundException("Error, heat generation field already exists.");
 			
 					
 		
 	}
+	
+	public String deleteHeatgenerationField(Double kQ) throws HeatGenerationFieldNotFoundException{
+		
+		Instant startTime = Instant.now();
+		
+		StringBuilder deletePath = new StringBuilder("serializedObjects/HeatGenerationFields/" + kQ.toString() + ".txt");
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 
