@@ -71,7 +71,7 @@ public class HeatGenerationFieldService {
 				
 				long buildingTime = Duration.between(startTime, endTime).toMillis();
 				
-				outputMessage.append("Heat generation field with kQ = ").append(kQ.toString()).append(", created execution time: \"").append(buildingTime).append(" milliseconds");
+				outputMessage.append("Heat generation field with kQ = ").append(kQ.toString()).append(" created, execution time: \"").append(buildingTime).append(" milliseconds");
 				
 				return outputMessage.toString();
 				

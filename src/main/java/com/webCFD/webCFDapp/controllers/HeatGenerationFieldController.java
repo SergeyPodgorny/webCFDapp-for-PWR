@@ -25,7 +25,11 @@ public class HeatGenerationFieldController {
 	
 	@PostMapping("heatGenerationField/create")
 	public String writeHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws IOException,HeatGenerationFieldNotFoundException, HeatGenerationFieldExistException {
-		return heatgenerationFieldService.writeNewHeatGenerationField(fieldCoefficientsDTO.getkQ());
+		try {
+			return heatgenerationFieldService.writeNewHeatGenerationField(fieldCoefficientsDTO.getkQ());
+		} catch (HeatGenerationFieldExistException e) {
+			return e.getMessage();
+		}
 	}
 	
 	
