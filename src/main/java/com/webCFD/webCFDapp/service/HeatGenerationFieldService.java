@@ -65,9 +65,9 @@ public class HeatGenerationFieldService {
 				
 				FileOutputStream file = new FileOutputStream(writePath.toString());
 				
-				ObjectOutputStream writer = new ObjectOutputStream(file);
+				ObjectOutputStream fileWriter = new ObjectOutputStream(file);
 				
-				writer.writeObject(heatGenerationField.getField());
+				fileWriter.writeObject(heatGenerationField.getField());
 				
 				Instant endTime = Instant.now();
 				
@@ -77,7 +77,7 @@ public class HeatGenerationFieldService {
 				
 				return outputMessage.toString();
 				
-			} throw new HeatGenerationFieldExistException("Error, creating heat generation filed is already exists.");
+			} throw new HeatGenerationFieldExistException("Error, heat generation field already exists.");
 			
 					
 		

@@ -32,7 +32,13 @@ public class HeatGenerationField extends SparseMatrix{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public void buildHeatGenerationField(Double kQ) throws HeatGenerationFieldNotFoundException, HeatGenerationFieldExistException {
+	
+	public double[][] getField(){
+		return sparseMatrix;
+	}
+	
+	
+	private void buildHeatGenerationField(Double kQ) throws HeatGenerationFieldNotFoundException, HeatGenerationFieldExistException {
 		
 		buildSparseMatrix();
 		
@@ -43,7 +49,7 @@ public class HeatGenerationField extends SparseMatrix{
 			}
 		}
 		
-		printMatrix(sparseMatrix);
+//		printMatrix(sparseMatrix);
 		
 		
 	}
@@ -53,9 +59,7 @@ public class HeatGenerationField extends SparseMatrix{
 		System.out.println(Arrays.deepToString(printingArray).replace("], ", "]\n"));
 			}
 	
-	public double[][] getField(){
-		return sparseMatrix;
-	}
+	
 	
 	
 	}
