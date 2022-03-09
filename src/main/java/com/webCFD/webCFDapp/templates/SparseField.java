@@ -16,16 +16,16 @@ import com.webCFD.webCFDapp.constants.PWR;
 
 
 
-public abstract class SparseMatrix extends Thread implements Serializable {
+public abstract class SparseField extends Thread implements Serializable {
 	
-	protected double [][] sparseMatrix = new double [PWR.SIZE][PWR.SIZE];
+	protected double [][] sparseField = new double [PWR.SIZE][PWR.SIZE];
 	
 	
 	protected void buildSparseMatrix() {
 		
 		for (int i = 0; i < PWR.SIZE; i++) {
 			for (int j = 0; j < PWR.SIZE; j++) {
-				sparseMatrix[i][j] = 0;
+				sparseField[i][j] = 0;
 			}
 		}
 		
