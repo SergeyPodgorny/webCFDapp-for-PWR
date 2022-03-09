@@ -1,6 +1,5 @@
 package com.webCFD.webCFDapp.components;
 
-import java.io.Serializable;
 import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
