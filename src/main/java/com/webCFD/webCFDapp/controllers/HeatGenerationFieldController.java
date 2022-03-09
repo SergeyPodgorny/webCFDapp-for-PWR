@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.webCFD.webCFDapp.dto.FieldCoefficientsDTO;
+import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldExistException;
+import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
 import com.webCFD.webCFDapp.service.HeatGenerationFieldService;
 
 @RestController
@@ -22,7 +24,7 @@ public class HeatGenerationFieldController {
 	}
 	
 	@PostMapping("heatGenerationField/create")
-	public String writeHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws IOException {
+	public String writeHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws IOException,HeatGenerationFieldNotFoundException, HeatGenerationFieldExistException {
 		return heatgenerationFieldService.writeNewHeatGenerationField(fieldCoefficientsDTO.getkQ());
 	}
 	

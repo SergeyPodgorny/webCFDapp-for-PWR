@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
 
+import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldExistException;
+import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
 import com.webCFD.webCFDapp.templates.SparseMatrix;
 
 import static com.webCFD.webCFDapp.constants.PWR.THERMAL_POWER;
@@ -30,7 +32,7 @@ public class HeatGenerationField extends SparseMatrix{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public void buildHeatGenerationField(Double kQ) {
+	public void buildHeatGenerationField(Double kQ) throws HeatGenerationFieldNotFoundException, HeatGenerationFieldExistException {
 		
 		buildSparseMatrix();
 		

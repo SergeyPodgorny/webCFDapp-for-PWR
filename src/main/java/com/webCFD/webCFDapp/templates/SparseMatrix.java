@@ -16,7 +16,7 @@ import com.webCFD.webCFDapp.constants.PWR;
 
 
 
-public abstract class SparseMatrix extends Thread implements Serializable{
+public abstract class SparseMatrix extends Thread implements Serializable {
 	
 	protected double [][] sparseMatrix = new double [PWR.SIZE][PWR.SIZE];
 	

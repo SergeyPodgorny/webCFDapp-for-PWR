@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.components.HeatGenerationField;
+import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldExistException;
+import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
 
 
 /**
@@ -47,7 +49,7 @@ public class HeatGenerationFieldService {
 	}
 	
 		
-	public String writeNewHeatGenerationField(Double kQ) throws IOException {
+	public String writeNewHeatGenerationField(Double kQ) throws IOException, HeatGenerationFieldNotFoundException, HeatGenerationFieldExistException{
 		
 		Instant startTime = Instant.now();
 		
@@ -71,15 +73,13 @@ public class HeatGenerationFieldService {
 				
 				long buildingTime = Duration.between(startTime, endTime).toMillis();
 				
-				outputMessage.append("done, execution time: ").append(buildingTime).append(" milliseconds");
+				outputMessage.append("Heat generation field with kQ = ").append(kQ.toString()).append(", execution time: \"").append(buildingTime).append(" milliseconds");
 				
-			} else {
+				return outputMessage.toString();
 				
-				outputMessage.append("Can't write a file, it is already exist");
-				
-			}
+			} throw new HeatGenerationFieldExistException("Error, creating heat generation filed is already exists.");
 			
-			return outputMessage.toString();		
+					
 		
 	}
 	
