@@ -36,8 +36,12 @@ public class HeatGenerationFieldController {
 	
 	
 	@DeleteMapping("heatGenerationField/delete")
-	public String deleteHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) {
-		return null;
+	public String deleteHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws HeatGenerationFieldNotFoundException {
+		try {
+			return heatgenerationFieldService.deleteExistHeatGenerationField(fieldCoefficientsDTO.getkQ());
+		} catch (HeatGenerationFieldNotFoundException e) {
+			return e.getMessage();
+		}
 	}
 	
 	

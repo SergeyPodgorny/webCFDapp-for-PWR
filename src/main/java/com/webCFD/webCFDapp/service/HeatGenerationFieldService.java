@@ -83,7 +83,7 @@ public class HeatGenerationFieldService {
 		
 	}
 	
-	public String deleteHeatgenerationField(Double kQ) throws HeatGenerationFieldNotFoundException {
+	public String deleteExistHeatGenerationField(Double kQ) throws HeatGenerationFieldNotFoundException {
 		
 		Instant startTime = Instant.now();
 		
