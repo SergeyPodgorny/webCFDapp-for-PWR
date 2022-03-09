@@ -61,13 +61,11 @@ public class HeatGenerationFieldService {
 		
 			if (checkExistance.exists() == false) {
 				
-				heatGenerationField.buildHeatGenerationField(kQ);
-				
 				FileOutputStream file = new FileOutputStream(writePath.toString());
 				
 				ObjectOutputStream fileWriter = new ObjectOutputStream(file);
 				
-				fileWriter.writeObject(heatGenerationField.getField());
+				fileWriter.writeObject(heatGenerationField.getField(kQ));
 				
 				Instant endTime = Instant.now();
 				
