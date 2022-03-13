@@ -78,9 +78,9 @@ public class HeatGenerationFieldService {
 				
 				fileWriter.close();
 				
-				HeatGenerationFieldEntity heatGenerationFieldEntity = new HeatGenerationFieldEntity(kQ);
 				
-				heatGenerationFieldRepository.save(heatGenerationFieldEntity);
+				
+				heatGenerationFieldRepository.save(new HeatGenerationFieldEntity(kQ));
 				
 				Instant endTime = Instant.now();
 				
@@ -108,6 +108,8 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 			
+				heatGenerationFieldRepository.delete(new HeatGenerationFieldEntity(kQ));
+				
 				Instant endTime = Instant.now();
 			
 				return outputMessage.append("Heat generation field with kQ = " + kQ.toString() + " deleted, execution time: " + Duration.between(endTime, startTime).toMillis()).append(" milliseconds.").toString();
