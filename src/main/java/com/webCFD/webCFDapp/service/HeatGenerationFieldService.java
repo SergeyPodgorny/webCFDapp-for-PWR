@@ -95,7 +95,7 @@ public class HeatGenerationFieldService {
 		
 	}
 	
-	public String deleteExistHeatGenerationField(Double kQ) throws HeatGenerationFieldNotFoundException {
+	public String deleteExistHeatGenerationField(Double kQ) {
 		
 		Instant startTime = Instant.now();
 		
@@ -109,9 +109,7 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 				
-				List<HeatGenerationFieldEntity> allFields = heatGenerationFieldRepository.findAll();
-				
-				heatGenerationFieldRepository.deleteById((long) 1);
+				heatGenerationFieldRepository.deleteById(kQ.longValue());
 				
 				Instant endTime = Instant.now();
 				
