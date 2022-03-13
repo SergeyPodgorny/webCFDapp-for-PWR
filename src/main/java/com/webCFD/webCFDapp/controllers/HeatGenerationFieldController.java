@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.webCFD.webCFDapp.dto.FieldCoefficientsDTO;
+import com.webCFD.webCFDapp.entities.HeatGenerationFieldEntity;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
+import com.webCFD.webCFDapp.repository.HeatGenerationFieldRepository;
 import com.webCFD.webCFDapp.service.HeatGenerationFieldService;
 
 @RestController
@@ -19,9 +21,13 @@ public class HeatGenerationFieldController {
 		
 	private final HeatGenerationFieldService heatgenerationFieldService;
 	
+	private final HeatGenerationFieldRepository heatGenerationFieldRepository;
+	
+	
 	@Autowired
-	public HeatGenerationFieldController(HeatGenerationFieldService heatgenerationFieldService) {
+	public HeatGenerationFieldController(HeatGenerationFieldService heatgenerationFieldService, HeatGenerationFieldRepository heatGenerationFieldRepository) {
 		this.heatgenerationFieldService = heatgenerationFieldService;
+		this.heatGenerationFieldRepository = heatGenerationFieldRepository;
 	}
 	
 	
@@ -43,6 +49,14 @@ public class HeatGenerationFieldController {
 			return e.getMessage();
 		}
 	}
+	
+	@PostMapping("heatGenerationField/test")
+	public Long createTable() {
+		HeatGenerationFieldEntity heatGenerationFieldEntity = new HeatGenerationFieldEntity(1.2); 
+		return heatGenerationFieldRepository.save(heatGenerationFieldEntity).getFieldId();
+	}
+	
+	
 	
 	
 	

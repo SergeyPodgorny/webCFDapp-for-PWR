@@ -15,10 +15,14 @@ public class HeatGenerationFieldEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long fieldId;
+	private Long id;
 	
 	
 	private Double kQ; 
+	
+	public HeatGenerationFieldEntity() {
+		
+	}
 	
 	
 	public HeatGenerationFieldEntity(Double kQ) {
@@ -36,11 +40,11 @@ public class HeatGenerationFieldEntity {
 	
 	
 	public void setFieldId(Long fieldId) {
-		this.fieldId = fieldId;
+		this.id = fieldId;
 	}
 	
 	public Long getFieldId() {
-		return fieldId;
+		return id;
 	}
 
 

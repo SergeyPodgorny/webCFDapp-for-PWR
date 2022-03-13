@@ -44,15 +44,16 @@ public class HeatGenerationFieldService {
 	
 	private final HeatGenerationField heatGenerationField;
 	
-	private final HeatGenerationFieldRepository heatGenerationFieldRepository; 
+	
 	
 	
 	
 	@Autowired
-	public HeatGenerationFieldService(HeatGenerationField heatGenerationField, HeatGenerationFieldRepository heatGenerationFieldRepository) {
+	public HeatGenerationFieldService(HeatGenerationField heatGenerationField) {
 		this.heatGenerationField = heatGenerationField;
-		this.heatGenerationFieldRepository = heatGenerationFieldRepository;
+		
 	}
+	
 	
 	
 	
@@ -67,11 +68,6 @@ public class HeatGenerationFieldService {
 		StringBuilder outputMessage = new StringBuilder();
 		
 		File checkExistance = new File(writePath.toString());
-		
-		HeatGenerationFieldEntity heatGenerationFieldEntity = new HeatGenerationFieldEntity(kQ); 
-		
-		heatGenerationFieldRepository.save(heatGenerationFieldEntity).getFieldId();
-		
 		
 			if (checkExistance.exists() == false) {
 				
