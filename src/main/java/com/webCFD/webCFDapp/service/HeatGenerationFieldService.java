@@ -10,8 +10,9 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,7 +60,7 @@ public class HeatGenerationFieldService {
 	
 	
 	
-		
+	
 	public String writeNewHeatGenerationField(Double kQ) throws IOException, HeatGenerationFieldFoundException{
 		
 		Instant startTime = Instant.now();
@@ -110,11 +111,7 @@ public class HeatGenerationFieldService {
 				
 				List<HeatGenerationFieldEntity> allFields = heatGenerationFieldRepository.findAll();
 				
-				allFields.forEach(number -> {
-					if (number.getKq() == kQ) {
-						heatGenerationFieldRepository.delete(number);
-					}
-				});
+				heatGenerationFieldRepository.deleteById((long) 1);
 				
 				Instant endTime = Instant.now();
 				
