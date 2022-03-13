@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -105,8 +107,14 @@ public class HeatGenerationFieldService {
 			if (file.exists() == true) {
 			
 				file.delete();
-			
-				heatGenerationFieldRepository.deleteAll();
+				
+				List<HeatGenerationFieldEntity> allFields = heatGenerationFieldRepository.findAll();
+				
+				allFields.forEach(number -> {
+					if (number.getKq() == kQ) {
+						heatGenerationFieldRepository.delete(number);
+					}
+				});
 				
 				Instant endTime = Instant.now();
 				
