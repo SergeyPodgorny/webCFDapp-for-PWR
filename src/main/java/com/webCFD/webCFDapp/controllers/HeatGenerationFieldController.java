@@ -21,13 +21,13 @@ public class HeatGenerationFieldController {
 		
 	private final HeatGenerationFieldService heatgenerationFieldService;
 	
-	private final HeatGenerationFieldRepository heatGenerationFieldRepository;
+	
 	
 	
 	@Autowired
-	public HeatGenerationFieldController(HeatGenerationFieldService heatgenerationFieldService, HeatGenerationFieldRepository heatGenerationFieldRepository) {
+	public HeatGenerationFieldController(HeatGenerationFieldService heatgenerationFieldService) {
 		this.heatgenerationFieldService = heatgenerationFieldService;
-		this.heatGenerationFieldRepository = heatGenerationFieldRepository;
+		
 	}
 	
 	
@@ -50,11 +50,7 @@ public class HeatGenerationFieldController {
 		}
 	}
 	
-	@PostMapping("heatGenerationField/test")
-	public Long createTable() {
-		HeatGenerationFieldEntity heatGenerationFieldEntity = new HeatGenerationFieldEntity(1.2); 
-		return heatGenerationFieldRepository.save(heatGenerationFieldEntity).getFieldId();
-	}
+
 	
 	
 	
