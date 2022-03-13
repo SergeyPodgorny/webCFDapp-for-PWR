@@ -78,8 +78,6 @@ public class HeatGenerationFieldService {
 				
 				fileWriter.close();
 				
-				
-				
 				heatGenerationFieldRepository.save(new HeatGenerationFieldEntity(kQ));
 				
 				Instant endTime = Instant.now();
@@ -108,10 +106,10 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 			
-				heatGenerationFieldRepository.delete(new HeatGenerationFieldEntity(kQ));
+				heatGenerationFieldRepository.deleteAll();
 				
 				Instant endTime = Instant.now();
-			
+				
 				return outputMessage.append("Heat generation field with kQ = " + kQ.toString() + " deleted, execution time: " + Duration.between(endTime, startTime).toMillis()).append(" milliseconds.").toString();
 		
 			} throw new HeatGenerationFieldNotFoundException("Error, requesting heat generation field does not exist.");
