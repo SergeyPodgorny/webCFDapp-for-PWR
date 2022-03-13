@@ -33,11 +33,6 @@ public class HeatGenerationField extends SparseField{
 	private static final long serialVersionUID = 1L;
 
 	
-	public Double getKq() {
-		return kQ;
-	}
-	
-	
 	public double[][] getField(Double kQ) throws HeatGenerationFieldNotFoundException, HeatGenerationFieldFoundException{
 		
 		buildHeatGenerationField(kQ);
@@ -57,7 +52,7 @@ public class HeatGenerationField extends SparseField{
 			}
 		}
 		
-//		printMatrix(sparseMatrix);
+// 	printMatrix(sparseField);
 		
 		
 	}

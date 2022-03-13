@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.components.HeatGenerationField;
+import com.webCFD.webCFDapp.entities.HeatGenerationFieldEntity;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
 import com.webCFD.webCFDapp.repository.HeatGenerationFieldRepository;
@@ -67,18 +68,21 @@ public class HeatGenerationFieldService {
 		
 		File checkExistance = new File(writePath.toString());
 		
+		HeatGenerationFieldEntity heatGenerationFieldEntity = new HeatGenerationFieldEntity(kQ); 
+		
+		heatGenerationFieldRepository.save(heatGenerationFieldEntity).getFieldId();
+		
+		
 			if (checkExistance.exists() == false) {
 				
 				FileOutputStream file = new FileOutputStream(writePath.toString());
 				
 				ObjectOutputStream fileWriter = new ObjectOutputStream(file);
 				
-				
 				fileWriter.writeObject(heatGenerationField.getField(kQ));
 				
 				fileWriter.close();
 				
-				heatGenerationFieldRepository.save(heatGenerationField.getField(kQ));
 				
 				
 				Instant endTime = Instant.now();
