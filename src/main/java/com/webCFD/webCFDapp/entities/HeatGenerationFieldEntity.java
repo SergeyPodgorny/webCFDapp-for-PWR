@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 //@Table(name = "Existing heat generation fields", schema = "public")
-public class HeatGenerationFields {
+public class HeatGenerationFieldEntity {
 	
 	
 	@Id
