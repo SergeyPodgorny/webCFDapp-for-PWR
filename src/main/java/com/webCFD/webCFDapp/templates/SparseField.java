@@ -18,6 +18,10 @@ import com.webCFD.webCFDapp.constants.PWR;
 
 public abstract class SparseField extends Thread implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected double [][] sparseField = new double [PWR.SIZE][PWR.SIZE];
 	
 	
