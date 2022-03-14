@@ -110,7 +110,7 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 				
-				getIdByKq();
+				getIdByKq(kQ);
 				
 				Instant endTime = Instant.now();
 				
@@ -123,8 +123,8 @@ public class HeatGenerationFieldService {
 	
 	
 	
-	private void getIdByKq() {
-		heatGenerationFieldRepository.findAll().stream().collect(Collectors.toList()).forEach(s->System.out.println(s.getKq()));
+	private void getIdByKq(Double kQ) {
+		heatGenerationFieldRepository.findAll().stream().filter(f -> f.getKq().equals(kQ)).collect(Collectors.toList()).forEach(f -> System.out.println(f.getFieldId()));
 		}
 	
 	
