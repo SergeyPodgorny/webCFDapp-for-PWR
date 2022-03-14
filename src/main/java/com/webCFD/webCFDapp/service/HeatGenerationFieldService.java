@@ -90,8 +90,6 @@ public class HeatGenerationFieldService {
 				
 				outputMessage.append("Heat generation field with kQ = ").append(kQ.toString()).append(" created, execution time: ").append(Duration.between(startTime, endTime).toMillis()).append(" milliseconds.");
 				
-				System.out.println(heatGenerationFieldRepository.findHeatGenerationFieldEntityIdBykQ(kQ).getFieldId());
-				
 				return outputMessage.toString();
 				
 			} throw new HeatGenerationFieldFoundException("Error, requesting heat generation field already exists.");
@@ -114,11 +112,13 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 				
+				System.out.println(heatGenerationFieldRepository.findHeatGenerationFieldEntityIdBykQ(kQ).getFieldId());
 				
+				deleteObjectInDataBase(kQ);
 				
 				Instant endTime = Instant.now();
 				
-				return outputMessage.append("Heat generation field with kQ = " + kQ.toString() + " deleted, execution time: " + Duration.between(endTime, startTime).toMillis()).append(" milliseconds.").toString();
+				return outputMessage.append("Heat generation field with kQ = " + kQ.toString() + " deleted, execution time: " + Duration.between(startTime, endTime).toMillis()).append(" milliseconds.").toString();
 		
 			} throw new HeatGenerationFieldNotFoundException("Error, requesting heat generation field does not exist.");
 		
@@ -126,7 +126,11 @@ public class HeatGenerationFieldService {
 	}
 	
 	
-	
+	private void deleteObjectInDataBase(Double kQ) {
+		
+		heatGenerationFieldRepository.deleteById(heatGenerationFieldRepository.findHeatGenerationFieldEntityIdBykQ(kQ).getFieldId());
+		
+	}
 	
 	
 	
