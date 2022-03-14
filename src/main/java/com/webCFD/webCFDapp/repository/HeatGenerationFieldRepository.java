@@ -6,4 +6,7 @@ import com.webCFD.webCFDapp.entities.HeatGenerationFieldEntity;
 
 public interface HeatGenerationFieldRepository extends JpaRepository<HeatGenerationFieldEntity, Long> {
 
+	HeatGenerationFieldEntity findHeatGenerationFieldEntityIdBykQ(Double kQ);
+	
+	
 }

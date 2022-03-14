@@ -68,6 +68,8 @@ public class HeatGenerationFieldService {
 		
 		StringBuilder outputMessage = new StringBuilder();
 		
+		
+		
 		File checkExistance = new File(writePath.toString());
 		
 			if (checkExistance.exists() == false) {
@@ -87,6 +89,8 @@ public class HeatGenerationFieldService {
 				Instant endTime = Instant.now();
 				
 				outputMessage.append("Heat generation field with kQ = ").append(kQ.toString()).append(" created, execution time: ").append(Duration.between(startTime, endTime).toMillis()).append(" milliseconds.");
+				
+				System.out.println(heatGenerationFieldRepository.findHeatGenerationFieldEntityIdBykQ(kQ).getFieldId());
 				
 				return outputMessage.toString();
 				
@@ -110,7 +114,7 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 				
-				getIdByKq(kQ);
+				
 				
 				Instant endTime = Instant.now();
 				
@@ -123,17 +127,7 @@ public class HeatGenerationFieldService {
 	
 	
 	
-	private void getIdByKq(Double kQ) {
-		List<HeatGenerationFieldEntity> someList = heatGenerationFieldRepository.findAll().stream().filter(f -> f.getKq().equals(kQ)).collect(Collectors.toList());
-		printer(someList);
-		someList.clear();
-		}
 	
-	
-	
-	public void printer(List<HeatGenerationFieldEntity> someList) {
-		someList.forEach(f -> System.out.println(f.getFieldId()));
-	}
 	
 	
 	
