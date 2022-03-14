@@ -11,8 +11,7 @@ import java.io.ObjectOutputStream;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
-
-
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -111,7 +110,7 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 				
-				
+				getIdByKq();
 				
 				Instant endTime = Instant.now();
 				
@@ -124,8 +123,8 @@ public class HeatGenerationFieldService {
 	
 	
 	
-	private List<HeatGenerationFieldEntity> getIdByKq() {
-		return heatGenerationFieldRepository.findAll();
+	private void getIdByKq() {
+		heatGenerationFieldRepository.findAll().stream().collect(Collectors.toList()).forEach(s->System.out.println(s.getKq()));
 		}
 	
 	
