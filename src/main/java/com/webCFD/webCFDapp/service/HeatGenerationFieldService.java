@@ -124,12 +124,16 @@ public class HeatGenerationFieldService {
 	
 	
 	private void getIdByKq(Double kQ) {
-		heatGenerationFieldRepository.findAll().stream().filter(f -> f.getKq().equals(kQ)).collect(Collectors.toList()).forEach(f -> System.out.println(f.getFieldId()));
+		List<HeatGenerationFieldEntity> someList = heatGenerationFieldRepository.findAll().stream().filter(f -> f.getKq().equals(kQ)).collect(Collectors.toList());
+		printer(someList);
+		someList.clear();
 		}
 	
 	
 	
-	
+	public void printer(List<HeatGenerationFieldEntity> someList) {
+		someList.forEach(f -> System.out.println(f.getFieldId()));
+	}
 	
 	
 	
