@@ -79,6 +79,8 @@ public class HeatGenerationFieldService {
 				
 				fileWriter.writeObject(heatGenerationField.getField(kQ));
 				
+				file.close();
+				
 				fileWriter.close();
 				
 				heatGenerationFieldRepository.save(new HeatGenerationFieldEntity(kQ));
@@ -109,7 +111,7 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 				
-				heatGenerationFieldRepository.deleteById(kQ.longValue());
+				
 				
 				Instant endTime = Instant.now();
 				
@@ -122,7 +124,9 @@ public class HeatGenerationFieldService {
 	
 	
 	
-	
+	private List<HeatGenerationFieldEntity> getIdByKq() {
+		return heatGenerationFieldRepository.findAll();
+		}
 	
 	
 	
