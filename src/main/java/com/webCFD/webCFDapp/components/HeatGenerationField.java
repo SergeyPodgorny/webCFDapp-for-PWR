@@ -1,16 +1,15 @@
 package com.webCFD.webCFDapp.components;
 
+
+import static com.webCFD.webCFDapp.constants.PWR.SIZE;
+import static com.webCFD.webCFDapp.constants.PWR.THERMAL_POWER;
+
 import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
 
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
-
-
-import static com.webCFD.webCFDapp.constants.PWR.THERMAL_POWER;
-
-import static com.webCFD.webCFDapp.constants.PWR.SIZE;
 
 
 /**
