@@ -6,9 +6,10 @@ import org.springframework.stereotype.Component;
 
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
-import com.webCFD.webCFDapp.templates.SparseField;
+
 
 import static com.webCFD.webCFDapp.constants.PWR.THERMAL_POWER;
+
 import static com.webCFD.webCFDapp.constants.PWR.SIZE;
 
 
@@ -24,12 +25,16 @@ import static com.webCFD.webCFDapp.constants.PWR.SIZE;
  *
  */
 @Component
-public class HeatGenerationField extends SparseField{
+public class HeatGenerationField implements Matrix{
 	
 	
 	/**
 	 * 
 	 */
+	
+	
+	private double [][] sparseField = new double [SIZE][SIZE];
+	
 	private static final long serialVersionUID = 1L;
 
 	
@@ -43,16 +48,24 @@ public class HeatGenerationField extends SparseField{
 	
 	private void buildHeatGenerationField(Double kQ) throws HeatGenerationFieldNotFoundException, HeatGenerationFieldFoundException {
 		
-		buildSparseMatrix();
 		
 		
-		for (int i = 1; i < SIZE-1; i++) {
-			for (int j = 1; j < SIZE-1; j++) {
-				sparseField[i][j] = kQ*THERMAL_POWER*Math.cos(0.20279*i-1.6223)*Math.cos(0.17346*j-1.3877);
+		
+		for (int i = 0; i < SIZE-1; i++) {
+			for (int j = 0; j < SIZE-1; j++) {
+				
+				if ((i>0)&(j>0)&(i<SIZE)&(j<SIZE)) {
+					sparseField[i][j] = kQ*THERMAL_POWER*Math.cos(0.20279*i-1.6223)*Math.cos(0.17346*j-1.3877);
+				} else {
+					sparseField[i][j] = 0;
+				}
+				
+				
+				
 			}
 		}
 		
-// 	printMatrix(sparseField);
+ 	printMatrix(sparseField);
 		
 		
 	}
