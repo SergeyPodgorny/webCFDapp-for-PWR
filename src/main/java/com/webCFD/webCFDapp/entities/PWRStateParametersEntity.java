@@ -40,6 +40,14 @@ public class PWRStateParametersEntity {
 		this.kG = kG;
 		this.description = description;
 	}
+	
+	public PWRStateParametersEntity(Long id, Double kQ, String description) {
+		this.id = id;
+		this.kQ = kQ;
+		this.description = description;
+	}
+	
+	
 
 	public Long getId() {
 		return id;
