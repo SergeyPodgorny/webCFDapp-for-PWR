@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.components.HeatGenerationField;
-import com.webCFD.webCFDapp.entities.HeatGenerationFieldEntity;
+import com.webCFD.webCFDapp.entities.PWRStateParametersEntity;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
 import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
 import com.webCFD.webCFDapp.repository.HeatGenerationFieldRepository;
@@ -83,7 +83,7 @@ public class HeatGenerationFieldService {
 				
 				fileWriter.close();
 				
-				heatGenerationFieldRepository.save(new HeatGenerationFieldEntity(kQ));
+				heatGenerationFieldRepository.save(new PWRStateParametersEntity(kQ));
 				
 				Instant endTime = Instant.now();
 				
