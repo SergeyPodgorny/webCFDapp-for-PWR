@@ -3,7 +3,7 @@ package com.webCFD.webCFDapp.dto;
 
 
 
-public class FieldCoefficientsDTO {
+public class PWRStateParametersDTO {
 	
 	private Double kQ;
 	
@@ -11,8 +11,10 @@ public class FieldCoefficientsDTO {
 	
 	private Double kG;
 	
+	private String description;
 	
-	public FieldCoefficientsDTO() {
+	
+	public PWRStateParametersDTO() {
 		
 	}
 
@@ -44,6 +46,16 @@ public class FieldCoefficientsDTO {
 
 	public void setkG(Double kG) {
 		this.kG = kG;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

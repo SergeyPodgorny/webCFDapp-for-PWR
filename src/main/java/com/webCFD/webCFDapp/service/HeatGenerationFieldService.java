@@ -1,24 +1,9 @@
 package com.webCFD.webCFDapp.service;
 
-
-
-
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.time.Duration;
-import java.time.Instant;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.components.HeatGenerationField;
-import com.webCFD.webCFDapp.entities.PWRStateParametersEntity;
-import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
-import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
 import com.webCFD.webCFDapp.repository.HeatGenerationFieldRepository;
 
 
@@ -59,77 +44,6 @@ public class HeatGenerationFieldService {
 	
 	
 	
-	public String writeNewHeatGenerationField(Double kQ) throws IOException, HeatGenerationFieldFoundException{
-		
-		Instant startTime = Instant.now();
-		
-		StringBuilder writePath = new StringBuilder("serializedObjects/HeatGenerationFields/" + kQ.toString() + ".txt");
-		
-		StringBuilder outputMessage = new StringBuilder();
-		
-		
-		
-		File checkExistance = new File(writePath.toString());
-		
-			if (checkExistance.exists() == false) {
-				
-				FileOutputStream file = new FileOutputStream(writePath.toString());
-				
-				ObjectOutputStream fileWriter = new ObjectOutputStream(file);
-				
-				fileWriter.writeObject(heatGenerationField.getField(kQ));
-				
-				file.close();
-				
-				fileWriter.close();
-				
-				heatGenerationFieldRepository.save(new PWRStateParametersEntity(kQ));
-				
-				Instant endTime = Instant.now();
-				
-				outputMessage.append("Heat generation field with kQ = ").append(kQ.toString()).append(" created, execution time: ").append(Duration.between(startTime, endTime).toMillis()).append(" milliseconds.");
-				
-				return outputMessage.toString();
-				
-			} throw new HeatGenerationFieldFoundException("Error, requesting heat generation field already exists.");
-			
-					
-		
-	}
-	
-	public String deleteExistHeatGenerationField(Double kQ) {
-		
-		Instant startTime = Instant.now();
-		
-		StringBuilder outputMessage = new StringBuilder();
-		
-		StringBuilder deletePath = new StringBuilder("serializedObjects/HeatGenerationFields/" + kQ.toString() + ".txt");
-		
-		File file = new File(deletePath.toString());
-		
-			if (file.exists() == true) {
-			
-				file.delete();
-				
-				System.out.println(heatGenerationFieldRepository.findHeatGenerationFieldEntityIdBykQ(kQ).getFieldId());
-				
-				deleteObjectInDataBase(kQ);
-				
-				Instant endTime = Instant.now();
-				
-				return outputMessage.append("Heat generation field with kQ = " + kQ.toString() + " deleted, execution time: " + Duration.between(startTime, endTime).toMillis()).append(" milliseconds.").toString();
-		
-			} throw new HeatGenerationFieldNotFoundException("Error, requesting heat generation field does not exist.");
-		
-		
-	}
-	
-	
-	private void deleteObjectInDataBase(Double kQ) {
-		
-//		heatGenerationFieldRepository.deleteById(heatGenerationFieldRepository.findHeatGenerationFieldEntityIdBykQ(kQ).getFieldId());
-		
-	}
 	
 	
 	

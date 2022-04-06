@@ -1,21 +1,18 @@
 package com.webCFD.webCFDapp.controllers;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.webCFD.webCFDapp.dto.FieldCoefficientsDTO;
-import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
-import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
+import com.webCFD.webCFDapp.dto.PWRStateParametersDTO;
+
 import com.webCFD.webCFDapp.repository.HeatGenerationFieldRepository;
 import com.webCFD.webCFDapp.service.HeatGenerationFieldService;
 
 @RestController
-public class HeatGenerationFieldController {
+public class PWRStateParametersController {
 
 		
 	private final HeatGenerationFieldService heatgenerationFieldService;
@@ -24,29 +21,21 @@ public class HeatGenerationFieldController {
 	
 	
 	@Autowired
-	public HeatGenerationFieldController(HeatGenerationFieldService heatgenerationFieldService,HeatGenerationFieldRepository heatGenerationFieldRepository) {
+	public PWRStateParametersController(HeatGenerationFieldService heatgenerationFieldService,HeatGenerationFieldRepository heatGenerationFieldRepository) {
 		this.heatgenerationFieldService = heatgenerationFieldService;
 		this.heatGenerationFieldRepository = heatGenerationFieldRepository;
 	}
 	
 	
 	@PostMapping("heatGenerationField/service/addParameters")
-	public String writeHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws IOException, HeatGenerationFieldFoundException {
-		try {
-			return heatgenerationFieldService.writeNewHeatGenerationField(fieldCoefficientsDTO.getkQ());
-		} catch (HeatGenerationFieldFoundException e) {
-			return e.getMessage();
-		}
+	public void writeHeatGenerationField(@RequestBody PWRStateParametersDTO stateParameters) {
+		
 	}
 	
 	
 	@DeleteMapping("heatGenerationField/service/deleteParameters")
-	public String deleteHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws HeatGenerationFieldNotFoundException {
-		try {
-			return heatgenerationFieldService.deleteExistHeatGenerationField(fieldCoefficientsDTO.getkQ());
-		} catch (HeatGenerationFieldNotFoundException e) {
-			return e.getMessage();
-		}
+	public void deleteHeatGenerationField(@RequestBody PWRStateParametersDTO stateParameters) {
+		
 	}
 	
 	
