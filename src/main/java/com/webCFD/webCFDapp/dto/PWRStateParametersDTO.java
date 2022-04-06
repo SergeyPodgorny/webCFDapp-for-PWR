@@ -1,8 +1,8 @@
 package com.webCFD.webCFDapp.dto;
 
+import org.springframework.stereotype.Component;
 
-
-
+@Component
 public class PWRStateParametersDTO {
 	
 	private Double kQ;

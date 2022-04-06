@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.components.HeatGenerationField;
-import com.webCFD.webCFDapp.repository.HeatGenerationFieldRepository;
+import com.webCFD.webCFDapp.entities.PWRStateParameters;
+import com.webCFD.webCFDapp.repository.PWRStateParametersRepository;
 
 
 /**
@@ -25,24 +26,28 @@ import com.webCFD.webCFDapp.repository.HeatGenerationFieldRepository;
 
 
 @Service
-public class HeatGenerationFieldService {
+public class PWRStateParametersService {
 	
 	
 	private final HeatGenerationField heatGenerationField;
 	
-	private final HeatGenerationFieldRepository heatGenerationFieldRepository;
+	private final PWRStateParametersRepository heatGenerationFieldRepository;
 	
 	
 	
 	@Autowired
-	public HeatGenerationFieldService(HeatGenerationField heatGenerationField, HeatGenerationFieldRepository heatGenerationFieldRepository) {
+	public PWRStateParametersService(HeatGenerationField heatGenerationField, PWRStateParametersRepository heatGenerationFieldRepository) {
 		this.heatGenerationField = heatGenerationField;
 		this.heatGenerationFieldRepository = heatGenerationFieldRepository;
 		
 	}
 	
 	
-	
+	public void insertParametersIntoBase(Double kQ, Double kT, Double kG, String description) {
+		
+		heatGenerationFieldRepository.save(new PWRStateParameters(kQ, kT,kG, description));
+		
+	}
 	
 	
 	

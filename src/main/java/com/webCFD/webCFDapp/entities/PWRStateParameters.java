@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "pwr_state_parameters")
-public class PWRStateParametersEntity {
+public class PWRStateParameters {
 	
 	
 	@Id
@@ -29,33 +29,17 @@ public class PWRStateParametersEntity {
 	
 	private String description;
 	
-	public PWRStateParametersEntity() {
+	public PWRStateParameters() {
 		
 	}
 
-	public PWRStateParametersEntity(Long id, Double kQ, Double kT, Double kG, String description) {
-		this.id = id;
+	public PWRStateParameters(Double kQ, Double kT, Double kG, String description) {
 		this.kQ = kQ;
 		this.kT = kT;
 		this.kG = kG;
 		this.description = description;
 	}
 	
-	public PWRStateParametersEntity(Long id, Double kQ, String description) {
-		this.id = id;
-		this.kQ = kQ;
-		this.description = description;
-	}
-	
-	public PWRStateParametersEntity(Double kQ) {
-		
-		this.kQ = kQ;
-		
-	}
-	
-	
-	
-
 	public Long getId() {
 		return id;
 	}

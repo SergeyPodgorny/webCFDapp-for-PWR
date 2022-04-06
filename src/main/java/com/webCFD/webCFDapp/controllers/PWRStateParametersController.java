@@ -8,32 +8,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.webCFD.webCFDapp.dto.PWRStateParametersDTO;
 
-import com.webCFD.webCFDapp.repository.HeatGenerationFieldRepository;
-import com.webCFD.webCFDapp.service.HeatGenerationFieldService;
+import com.webCFD.webCFDapp.repository.PWRStateParametersRepository;
+import com.webCFD.webCFDapp.service.PWRStateParametersService;
 
 @RestController
 public class PWRStateParametersController {
 
 		
-	private final HeatGenerationFieldService heatgenerationFieldService;
-	private final HeatGenerationFieldRepository heatGenerationFieldRepository;
+	private final PWRStateParametersService stateParametersService;
+	private final PWRStateParametersRepository stateParametersRepository;
 	
 	
 	
 	@Autowired
-	public PWRStateParametersController(HeatGenerationFieldService heatgenerationFieldService,HeatGenerationFieldRepository heatGenerationFieldRepository) {
-		this.heatgenerationFieldService = heatgenerationFieldService;
-		this.heatGenerationFieldRepository = heatGenerationFieldRepository;
+	public PWRStateParametersController(PWRStateParametersService stateParametersService,PWRStateParametersRepository stateParametersRepository) {
+		this.stateParametersService = stateParametersService;
+		this.stateParametersRepository = stateParametersRepository;
 	}
 	
 	
-	@PostMapping("heatGenerationField/service/addParameters")
+	@PostMapping("service/addParameters")
 	public void writeHeatGenerationField(@RequestBody PWRStateParametersDTO stateParameters) {
-		
+		stateParametersService.insertParametersIntoBase(stateParameters.getkQ(), stateParameters.getkT(), stateParameters.getkG(), stateParameters.getDescription());
 	}
 	
 	
-	@DeleteMapping("heatGenerationField/service/deleteParameters")
+	@DeleteMapping("service/deleteParameters")
 	public void deleteHeatGenerationField(@RequestBody PWRStateParametersDTO stateParameters) {
 		
 	}
