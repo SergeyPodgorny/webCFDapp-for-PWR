@@ -47,6 +47,13 @@ public class PWRStateParametersEntity {
 		this.description = description;
 	}
 	
+	public PWRStateParametersEntity(Double kQ) {
+		
+		this.kQ = kQ;
+		
+	}
+	
+	
 	
 
 	public Long getId() {

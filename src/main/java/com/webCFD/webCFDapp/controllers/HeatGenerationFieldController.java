@@ -30,7 +30,7 @@ public class HeatGenerationFieldController {
 	}
 	
 	
-	@PostMapping("heatGenerationField/create")
+	@PostMapping("heatGenerationField/service/addParameters")
 	public String writeHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws IOException, HeatGenerationFieldFoundException {
 		try {
 			return heatgenerationFieldService.writeNewHeatGenerationField(fieldCoefficientsDTO.getkQ());
@@ -40,7 +40,7 @@ public class HeatGenerationFieldController {
 	}
 	
 	
-	@DeleteMapping("heatGenerationField/delete")
+	@DeleteMapping("heatGenerationField/service/deleteParameters")
 	public String deleteHeatGenerationField(@RequestBody FieldCoefficientsDTO fieldCoefficientsDTO) throws HeatGenerationFieldNotFoundException {
 		try {
 			return heatgenerationFieldService.deleteExistHeatGenerationField(fieldCoefficientsDTO.getkQ());

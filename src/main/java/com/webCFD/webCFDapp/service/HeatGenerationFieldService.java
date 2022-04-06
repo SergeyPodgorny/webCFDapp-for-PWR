@@ -83,7 +83,7 @@ public class HeatGenerationFieldService {
 				
 				fileWriter.close();
 				
-//				heatGenerationFieldRepository.save(new PWRStateParametersEntity(kQ));
+				heatGenerationFieldRepository.save(new PWRStateParametersEntity(kQ));
 				
 				Instant endTime = Instant.now();
 				
@@ -111,7 +111,7 @@ public class HeatGenerationFieldService {
 			
 				file.delete();
 				
-//				System.out.println(heatGenerationFieldRepository.findHeatGenerationFieldEntityIdBykQ(kQ).getFieldId());
+				System.out.println(heatGenerationFieldRepository.findHeatGenerationFieldEntityIdBykQ(kQ).getFieldId());
 				
 				deleteObjectInDataBase(kQ);
 				
