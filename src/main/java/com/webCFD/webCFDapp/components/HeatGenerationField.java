@@ -24,7 +24,7 @@ import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
  *
  */
 @Component
-public class HeatGenerationField implements Matrix{
+public class HeatGenerationField extends Field{
 	
 	
 	/**
@@ -32,22 +32,20 @@ public class HeatGenerationField implements Matrix{
 	 */
 	
 	
-	private double [][] sparseField = new double [SIZE][SIZE];
+	
 	
 	private static final long serialVersionUID = 1L;
 
 	
 	public double[][] getField(Double kQ) throws HeatGenerationFieldNotFoundException, HeatGenerationFieldFoundException{
 		
-		buildHeatGenerationField(kQ);
+		buildField(kQ);
 		
 		return sparseField;
 	}
 	
-	
-	private void buildHeatGenerationField(Double kQ) throws HeatGenerationFieldNotFoundException, HeatGenerationFieldFoundException {
-		
-		
+	@Override
+	protected void buildField(Double kQ) {
 		
 		
 		for (int i = 0; i < SIZE-1; i++) {
@@ -64,16 +62,16 @@ public class HeatGenerationField implements Matrix{
 			}
 		}
 		
- 	printMatrix(sparseField);
+// 	printMatrix(sparseField);
 		
 		
 	}
 	
-	private void printMatrix(double [][] printingArray) {
-		
-		System.out.println(Arrays.deepToString(printingArray).replace("], ", "]\n"));
-			}
-	
+//	private void printMatrix(double [][] printingArray) {
+//		
+//		System.out.println(Arrays.deepToString(printingArray).replace("], ", "]\n"));
+//			}
+//	
 	
 	
 	
