@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 
 @Entity
@@ -17,16 +19,20 @@ public class PWRStateParameters {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	
+	@NotEmpty
 	@Column(name = "kq")
 	private Double kQ; 
 	
-	
+	@NotEmpty
 	@Column(name = "kt")
 	private Double kT;
-
+	
+	@NotEmpty
 	@Column(name = "kg")
 	private Double kG;
 	
+	@NotBlank
 	private String description;
 	
 	public PWRStateParameters() {

@@ -1,8 +1,8 @@
 package com.webCFD.webCFDapp.components;
 
 
-import static com.webCFD.webCFDapp.constants.PWR.SIZE;
-import static com.webCFD.webCFDapp.constants.PWR.THERMAL_POWER;
+import static com.webCFD.webCFDapp.model.constants.PWR.SIZE;
+import static com.webCFD.webCFDapp.model.constants.PWR.THERMAL_POWER;
 
 import java.util.Arrays;
 

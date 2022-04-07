@@ -1,4 +1,4 @@
-package com.webCFD.webCFDapp.constants;
+package com.webCFD.webCFDapp.model.constants;
 
 
 /**
