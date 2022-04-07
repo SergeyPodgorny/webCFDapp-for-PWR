@@ -1,13 +1,16 @@
 package com.webCFD.webCFDapp.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.webCFD.webCFDapp.dto.PWRStateParametersDTO;
-
+import com.webCFD.webCFDapp.entities.PWRStateParameters;
 import com.webCFD.webCFDapp.repository.PWRStateParametersRepository;
 import com.webCFD.webCFDapp.service.PWRStateParametersService;
 
@@ -38,7 +41,10 @@ public class PWRStateParametersController {
 		
 	}
 	
-	
+	@GetMapping("showAll")
+	public List<PWRStateParameters> showAll(){
+		return stateParametersService.findAll();
+	}
 	
 	
 	
