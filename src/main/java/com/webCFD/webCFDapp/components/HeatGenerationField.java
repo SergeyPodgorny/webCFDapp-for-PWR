@@ -4,13 +4,10 @@ package com.webCFD.webCFDapp.components;
 import static com.webCFD.webCFDapp.model.constants.PWR.SIZE;
 import static com.webCFD.webCFDapp.model.constants.PWR.THERMAL_POWER;
 
+
 import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
-
-import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldFoundException;
-import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
-
 
 /**
  * <h3> HeatGenerationField Class</h3>
@@ -23,6 +20,7 @@ import com.webCFD.webCFDapp.exceptions.HeatGenerationFieldNotFoundException;
  * @author Sergey Podgorny
  *
  */
+@SuppressWarnings("unused")
 @Component
 public class HeatGenerationField extends Field{
 	
@@ -36,8 +34,8 @@ public class HeatGenerationField extends Field{
 	
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public double[][] getField(Double kQ) {
+	
+	public double[][] getHeatGenerationField(Double kQ) {
 		
 		buildField(kQ);
 		

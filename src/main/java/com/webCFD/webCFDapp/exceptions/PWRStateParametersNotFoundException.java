@@ -1,13 +1,13 @@
 package com.webCFD.webCFDapp.exceptions;
 
-public class HeatGenerationFieldNotFoundException extends RuntimeException{
+public class PWRStateParametersNotFoundException extends RuntimeException{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public HeatGenerationFieldNotFoundException(String message) {
+	public PWRStateParametersNotFoundException(String message) {
 		super(message);
 		
 	}

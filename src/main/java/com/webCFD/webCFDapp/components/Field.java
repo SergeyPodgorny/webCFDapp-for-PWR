@@ -10,6 +10,6 @@ public abstract class Field {
 	
 	protected abstract void buildField(Double kQ);
 
-	protected abstract double[][] getField(Double kQ);
+	
 
 }

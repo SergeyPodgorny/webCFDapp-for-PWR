@@ -1,5 +1,7 @@
 package com.webCFD.webCFDapp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,25 +33,29 @@ public class PWRStateParametersService {
 	
 	private final HeatGenerationField heatGenerationField;
 	
-	private final PWRStateParametersRepository heatGenerationFieldRepository;
+	private final PWRStateParametersRepository pwrStateParametersRepository;
 	
 	
 	
 	@Autowired
-	public PWRStateParametersService(HeatGenerationField heatGenerationField, PWRStateParametersRepository heatGenerationFieldRepository) {
+	public PWRStateParametersService(HeatGenerationField heatGenerationField, PWRStateParametersRepository pwrStateParametersRepository) {
 		this.heatGenerationField = heatGenerationField;
-		this.heatGenerationFieldRepository = heatGenerationFieldRepository;
+		this.pwrStateParametersRepository = pwrStateParametersRepository;
 		
 	}
 	
 	
 	public void insertParametersIntoBase(Double kQ, Double kT, Double kG, String description) {
 		
-		heatGenerationFieldRepository.save(new PWRStateParameters(kQ, kT,kG, description));
+		pwrStateParametersRepository.save(new PWRStateParameters(kQ, kT,kG, description));
 		
 	}
 	
 	
+	public List<PWRStateParameters> findAll(){
+		return pwrStateParametersRepository.findAll();
+		
+	}
 	
 	
 	
