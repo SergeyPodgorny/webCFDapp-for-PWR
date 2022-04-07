@@ -38,9 +38,9 @@ public class PWRStateParametersController {
 	}
 	
 	
-	@DeleteMapping("service/deleteParameters")
-	public void deleteHeatGenerationField(@RequestBody PWRStateParametersDTO stateParameters) {
-		
+	@DeleteMapping("service/deleteSpecificEntry")
+	public void deleteHeatGenerationField(@RequestBody PWRStateParameters stateParameters) {
+		stateParametersService.deleteSpecificEntry(stateParameters);
 	}
 	
 	@GetMapping("showAll")

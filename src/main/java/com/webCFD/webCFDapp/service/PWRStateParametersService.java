@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.webCFD.webCFDapp.components.HeatGenerationField;
+import com.webCFD.webCFDapp.dto.PWRStateParametersDTO;
 import com.webCFD.webCFDapp.entities.PWRStateParameters;
 import com.webCFD.webCFDapp.repository.PWRStateParametersRepository;
 
@@ -57,7 +58,9 @@ public class PWRStateParametersService {
 		
 	}
 	
-	
+	public void deleteSpecificEntry(PWRStateParameters stateParameters) {
+		pwrStateParametersRepository.delete(stateParameters);
+	}
 	
 	
 	
