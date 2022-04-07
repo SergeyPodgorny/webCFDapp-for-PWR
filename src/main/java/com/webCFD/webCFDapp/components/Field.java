@@ -1,6 +1,7 @@
 package com.webCFD.webCFDapp.components;
-
 import static com.webCFD.webCFDapp.model.constants.PWR.SIZE;
+
+
 
 public abstract class Field {
 	
@@ -8,5 +9,7 @@ public abstract class Field {
 	protected double [][] sparseField = new double [SIZE][SIZE];
 	
 	protected abstract void buildField(Double kQ);
+
+	protected abstract double[][] getField(Double kQ);
 
 }

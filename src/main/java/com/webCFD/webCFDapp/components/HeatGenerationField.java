@@ -36,8 +36,8 @@ public class HeatGenerationField extends Field{
 	
 	private static final long serialVersionUID = 1L;
 
-	
-	public double[][] getField(Double kQ) throws HeatGenerationFieldNotFoundException, HeatGenerationFieldFoundException{
+	@Override
+	public double[][] getField(Double kQ) {
 		
 		buildField(kQ);
 		
