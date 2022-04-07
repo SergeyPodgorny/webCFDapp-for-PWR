@@ -52,7 +52,7 @@ public class PWRStateParametersService {
 	}
 	
 	
-	public List<PWRStateParameters> findAll(){
+	public List<PWRStateParameters> getAll(){
 		return pwrStateParametersRepository.findAll();
 		
 	}
