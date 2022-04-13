@@ -9,6 +9,8 @@ import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
 
+import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.Field;
+
 /**
  * <h3> HeatGenerationField Class</h3>
  * <p>  This class represents a field of heat sources, which is imitating a volume heat generation in a model of an active core.<br>
@@ -22,7 +24,7 @@ import org.springframework.stereotype.Component;
  */
 @SuppressWarnings("unused")
 @Component
-public class HeatGenerationField extends Field{
+public class HeatGenerationField implements Field{
 	
 	
 	/**
@@ -30,10 +32,6 @@ public class HeatGenerationField extends Field{
 	 */
 	
 	
-	
-	
-	private static final long serialVersionUID = 1L;
-
 	
 	public double[][] getHeatGenerationField(Double kQ) {
 		
@@ -43,7 +41,7 @@ public class HeatGenerationField extends Field{
 	}
 	
 	@Override
-	protected void buildField(Double kQ) {
+	public void buildField(Double kQ) {
 		
 		
 		for (int i = 0; i < SIZE-1; i++) {
