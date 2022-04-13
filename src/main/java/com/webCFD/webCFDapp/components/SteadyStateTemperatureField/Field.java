@@ -7,8 +7,6 @@ public interface Field {
 	
 	double [][] sparseField = new double [SIZE][SIZE];
 	
-	void buildField(Double kQ);
-	
 	default double getFieldElement(int i, int j) {
 		return sparseField[i][j];
 	}

@@ -32,16 +32,16 @@ public class HeatGenerationField implements Field{
 	 */
 	
 	
-	
-	public double[][] getHeatGenerationField(Double kQ) {
+	@Override
+	public double[][] getField(Double kQ) {
 		
 		buildField(kQ);
 		
 		return sparseField;
 	}
 	
-	@Override
-	public void buildField(Double kQ) {
+	
+	private void buildField(Double kQ) {
 		
 		
 		for (int i = 0; i < SIZE-1; i++) {
@@ -58,17 +58,10 @@ public class HeatGenerationField implements Field{
 			}
 		}
 		
-// 	printMatrix(sparseField);
+
 		
 		
 	}
-	
-//	private void printMatrix(double [][] printingArray) {
-//		
-//		System.out.println(Arrays.deepToString(printingArray).replace("], ", "]\n"));
-//			}
-//	
-	
 	
 	
 	}

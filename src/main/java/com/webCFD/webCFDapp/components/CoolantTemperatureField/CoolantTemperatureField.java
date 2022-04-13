@@ -2,28 +2,28 @@ package com.webCFD.webCFDapp.components.CoolantTemperatureField;
 
 import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.Field;
 
-public class CoolantTemperatureField extends Field{
+public class CoolantTemperatureField implements Field{
 
 	
 	
 	
 	
-	protected double[][] getCoolantTemperatureField(Double kQ) {
+	public double[][] getField(Double kQ, Double kG) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	
-	
-	
-	
-	
-	
-	@Override
-	protected void buildField(Double kQ) {
+	public void buildField(Double kQ) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	
+	
+	
+	
+	
 	
 
 	
