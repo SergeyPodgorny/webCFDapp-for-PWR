@@ -1,4 +1,4 @@
-package com.webCFD.webCFDapp.components;
+package com.webCFD.webCFDapp.components.heatGenerationField;
 
 
 import static com.webCFD.webCFDapp.model.constants.PWR.SIZE;

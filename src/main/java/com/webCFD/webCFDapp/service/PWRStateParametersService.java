@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.webCFD.webCFDapp.components.HeatGenerationField;
+import com.webCFD.webCFDapp.components.heatGenerationField.HeatGenerationField;
 import com.webCFD.webCFDapp.entities.PWRStateParameters;
 import com.webCFD.webCFDapp.repository.PWRStateParametersRepository;
 

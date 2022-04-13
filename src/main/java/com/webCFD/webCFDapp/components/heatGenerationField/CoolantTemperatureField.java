@@ -1,4 +1,4 @@
-package com.webCFD.webCFDapp.components;
+package com.webCFD.webCFDapp.components.heatGenerationField;
 
 public class CoolantTemperatureField extends Field{
 
