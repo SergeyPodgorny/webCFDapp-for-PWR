@@ -8,14 +8,16 @@ public class CoolantTemperatureField implements Field{
 	
 	
 	
-	public double[][] getField(Double kQ, Double kG) {
-		// TODO Auto-generated method stub
-		return null;
+	public double[][] getField(Double kQ, Double kG, Double kT) {
+		
+		buildField(kQ, kG, kT);
+				
+		return sparseField;
 	}
 
 	
-	public void buildField(Double kQ) {
-		// TODO Auto-generated method stub
+	private void buildField(Double kQ, Double kG, Double kT) {
+		
 		
 	}
 	

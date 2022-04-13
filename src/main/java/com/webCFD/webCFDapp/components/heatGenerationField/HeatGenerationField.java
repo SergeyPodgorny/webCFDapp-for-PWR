@@ -32,16 +32,16 @@ public class HeatGenerationField implements Field{
 	 */
 	
 	
-	@Override
+	
 	public double[][] getField(Double kQ) {
 		
-		buildField(kQ);
+		buildHeatGenerationField(kQ);
 		
 		return sparseField;
 	}
 	
 	
-	private void buildField(Double kQ) {
+	private void buildHeatGenerationField(Double kQ) {
 		
 		
 		for (int i = 0; i < SIZE-1; i++) {
