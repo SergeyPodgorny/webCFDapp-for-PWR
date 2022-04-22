@@ -41,7 +41,12 @@ public class CoolantTemperatureField implements Field{
 	}
 	
 	
-	
+	private void buildCoolantFlowDistributionVector (Double kQ, Double kG, Double kT) {
+		
+		
+		
+		
+	}
 	
 	
 }
