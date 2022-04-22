@@ -26,11 +26,7 @@ import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.Field;
 @Component
 public class HeatGenerationField implements Field{
 	
-	
-	/**
-	 * 
-	 */
-	
+	private double [][] sparseField = new double [SIZE][SIZE];
 	
 	
 	public double[][] getField(Double kQ) {
