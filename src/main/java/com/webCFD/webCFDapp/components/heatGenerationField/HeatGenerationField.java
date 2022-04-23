@@ -26,9 +26,6 @@ import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.Field;
 @Component
 public class HeatGenerationField implements Field{
 	
-	private double [][] sparseField = new double [SIZE][SIZE];
-	
-	
 	public double[][] getField(Double kQ) {
 		
 		buildHeatGenerationField(kQ);
@@ -37,26 +34,20 @@ public class HeatGenerationField implements Field{
 	}
 	
 	
-	private void buildHeatGenerationField(Double kQ) {
-		
-		
-		for (int i = 0; i < SIZE-1; i++) {
-			for (int j = 0; j < SIZE-1; j++) {
-				
-				if ((i>0)&(j>0)&(i<SIZE)&(j<SIZE)) {
-					sparseField[i][j] = kQ*THERMAL_POWER*Math.cos(0.20279*i-1.6223)*Math.cos(0.17346*j-1.3877);
-				} else {
-					sparseField[i][j] = 0;
-				}
-				
-				
-				
-			}
-		}
-		
+	
 
-		
-		
+	@Override
+	public double getElement(int i, int j) {
+		return sparseField[i][j];
+	}
+
+
+
+
+	@Override
+	public double getElement(int i, int j, Double kQ, Double kG, Double kT) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

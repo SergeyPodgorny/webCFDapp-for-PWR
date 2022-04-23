@@ -10,8 +10,6 @@ import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.Field;
 public class CoolantTemperatureField implements Field{
 
 	
-	private double [][] sparseField = new double [SIZE][SIZE];
-	
 	
 	public double[][] getField(Double kQ, Double kG, Double kT) {
 		
@@ -21,24 +19,7 @@ public class CoolantTemperatureField implements Field{
 	}
 
 	
-	private void buildCoolantTemperatureField(Double kQ, Double kG, Double kT) {
-		
-		
-		for (int i = 0; i < SIZE-1; i++) {
-			for (int j = 0; j < SIZE-1; j++) {
-				
-				if ((i>0)&(j>0)&(i<SIZE)&(j<SIZE)) {
-					sparseField[i][j] = INLET_TEMP+ 1/2 + Math.cos(0.20279*i-1.6223);
-				} else {
-					sparseField[i][j] = 0;
-				}
-				
-				
-				
-			}
-		}
-				
-	}
+	
 	
 	
 	private void buildCoolantFlowDistributionVector (Double kQ, Double kG, Double kT) {
@@ -46,6 +27,21 @@ public class CoolantTemperatureField implements Field{
 		
 		
 		
+	}
+
+	@Override
+	public double getElement(int i, int j,Double kQ, Double kG, Double kT) {
+		return sparseField[i][j];
+	}
+
+
+
+
+
+	@Override
+	public double getElement(int i, int j) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

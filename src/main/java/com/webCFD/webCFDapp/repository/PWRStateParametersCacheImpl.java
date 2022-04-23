@@ -11,10 +11,10 @@ import com.webCFD.webCFDapp.entities.PWRStateParameters;
 
 public class PWRStateParametersCacheImpl implements PWRStateParametersCache {
 
-	@Autowired
+	
 	private final PWRStateParametersRepository pWRStateParametersRepository;
 	
-		
+	@Autowired	
 	public PWRStateParametersCacheImpl(PWRStateParametersRepository pWRStateParametersRepository) {
 		this.pWRStateParametersRepository = pWRStateParametersRepository;
 	}
