@@ -22,7 +22,7 @@ public class WebCfDappApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		HeatGenerationField field = new HeatGenerationField();
+//		HeatGenerationField field = new HeatGenerationField();
 //		System.out.println(field.getElement(1, 1, 1.00));
 //		System.out.println(Arrays.deepToString(field.getField(1.00)).replace("], ", "]\n"));
 	}

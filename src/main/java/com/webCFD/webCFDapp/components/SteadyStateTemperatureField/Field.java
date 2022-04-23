@@ -11,11 +11,7 @@ public interface Field {
 	
 	double getElement(int i, int j);
 	
-	double getElement(int i, int j, Double kQ, Double kG, Double kT);
-	
-	
-	
-	default strictfp void buildHeatGenerationField(Double kQ) {
+	default void buildHeatGenerationField(Double kQ) {
 		
 		
 		for (int i = 0; i < SIZE-1; i++) {

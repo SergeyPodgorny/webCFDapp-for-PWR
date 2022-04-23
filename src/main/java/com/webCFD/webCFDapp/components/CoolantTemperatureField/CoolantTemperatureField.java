@@ -29,16 +29,7 @@ public class CoolantTemperatureField implements Field{
 		
 	}
 
-	@Override
-	public double getElement(int i, int j,Double kQ, Double kG, Double kT) {
-		return sparseField[i][j];
-	}
-
-
-
-
-
-	@Override
+@Override
 	public double getElement(int i, int j) {
 		// TODO Auto-generated method stub
 		return 0;

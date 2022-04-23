@@ -26,11 +26,11 @@ public class HeatGenerationFieldTest {
 	 * Checking if boundaries are zero's
 	 */
 	
-//	@Test
-//	void checkBoundariesForZeros() {
-//		field.getField(1.00);
-//		assertEquals(1*THERMAL_POWER, field.getElement(8, 8));
-//	}
+	@Test
+	void checkBoundariesForZeros() {
+		field.getField(1.00);
+		assertEquals(1*THERMAL_POWER, field.getElement(8, 8));
+	}
 	
 	
 	

@@ -41,15 +41,6 @@ public class HeatGenerationField implements Field{
 		return sparseField[i][j];
 	}
 
-
-
-
-	@Override
-	public double getElement(int i, int j, Double kQ, Double kG, Double kT) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	
 	}
 	
