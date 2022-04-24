@@ -29,7 +29,6 @@ public class HeatGenerationFieldTest {
 	}
 	
 	
-	
 	/**
 	 * Checking if boundaries are zero's
 	 */
@@ -38,9 +37,20 @@ public class HeatGenerationFieldTest {
 	void checkBoundariesForZeros() {
 		
 		
+		for (int i = 0; i < SIZE; i++) {
+			assertEquals(0, field.getElement(i, 0, 1.00));
+		}
 		
 		for (int i = 0; i < SIZE; i++) {
-			assertEquals(THERMAL_POWER, field.getElement(8, 8, 1.00));
+			assertEquals(0, field.getElement(0, i, 1.00));
+		}
+		
+		for (int i = 0; i < SIZE; i++) {
+			assertEquals(0, field.getElement(i, SIZE-1, 1.00));
+		}
+		
+		for (int i = 0; i < SIZE; i++) {
+			assertEquals(0, field.getElement(SIZE-1, i, 1.00));
 		}
 		
 		
