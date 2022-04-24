@@ -1,11 +1,15 @@
 package com.webCFD.webCFDapp.components.CoolantTemperatureField;
 
-import static com.webCFD.webCFDapp.model.constants.PWR.SIZE;
-import static com.webCFD.webCFDapp.model.constants.PWR.THERMAL_POWER;
-import static com.webCFD.webCFDapp.model.constants.PWR.MASS_FLOW;
-import static com.webCFD.webCFDapp.model.constants.PWR.INLET_TEMP;
 
-import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.TemperatureField;
+/** <h3> CoolantTemperatureField Class</h3>
+ *  <p>  This class represents a field of coolant temperatures (water), which is a part of imitation of a volume heat sink in a model of an active core.<br>
+ * Due to the active core of PWR consist of uncased fuel assemblies, we need to determine coolant mass flow distribution before we can build a filed. <br>
+ * Such algorithm was invented and published. But it does not protected by patent, so in this implementation I will use precalculated vectors.  
+ * 
+ */
+
+
+
 
 public class CoolantTemperatureField implements CoolantTemperatureFieldInterface{
 
@@ -19,20 +23,11 @@ public class CoolantTemperatureField implements CoolantTemperatureFieldInterface
 	}
 
 	
-	
-	
-	
-	private double[] buildCoolantFlowDistributionVector (Double kQ, Double kG, Double kT) {
 		
-		return null;
-		
-		
-	}
 
 	@Override
 	public double getElement(int i, int j, Double kQ) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sparseField[i][j];
 	}
 	
 	

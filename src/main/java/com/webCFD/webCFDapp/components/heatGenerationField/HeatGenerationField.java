@@ -34,8 +34,6 @@ public class HeatGenerationField implements HeatGenerationFieldInterface{
 	}
 	
 	
-	
-
 	@Override
 	public double getElement(int i, int j, Double kQ) {
 		buildHeatGenerationField(kQ);

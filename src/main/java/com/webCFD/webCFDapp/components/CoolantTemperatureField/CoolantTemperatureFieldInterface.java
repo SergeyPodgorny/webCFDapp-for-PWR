@@ -3,7 +3,11 @@ package com.webCFD.webCFDapp.components.CoolantTemperatureField;
 import static com.webCFD.webCFDapp.model.constants.PWR.INLET_TEMP;
 import static com.webCFD.webCFDapp.model.constants.PWR.SIZE;
 
+
+
 public interface CoolantTemperatureFieldInterface {
+	
+	
 	
 	
 	double [][] sparseField = new double [SIZE][SIZE];
@@ -21,11 +25,14 @@ public interface CoolantTemperatureFieldInterface {
 					sparseField[i][j] = 0;
 				}
 				
-				
-				
 			}
 		}
 				
 	}
+	
+	
+	
+	
+	
 
 }
