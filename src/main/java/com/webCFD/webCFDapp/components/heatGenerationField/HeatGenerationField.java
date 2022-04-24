@@ -37,7 +37,8 @@ public class HeatGenerationField implements Field{
 	
 
 	@Override
-	public double getElement(int i, int j) {
+	public double getElement(int i, int j, Double kQ) {
+		buildHeatGenerationField(kQ);
 		return sparseField[i][j];
 	}
 

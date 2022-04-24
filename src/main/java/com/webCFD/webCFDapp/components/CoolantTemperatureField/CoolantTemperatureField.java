@@ -30,7 +30,7 @@ public class CoolantTemperatureField implements Field{
 	}
 
 @Override
-	public double getElement(int i, int j) {
+	public double getElement(int i, int j, Double kQ) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

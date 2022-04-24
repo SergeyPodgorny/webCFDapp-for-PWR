@@ -1,8 +1,7 @@
 package com.webCFD.webCFDapp.components.heatGenerationField;
 import static com.webCFD.webCFDapp.model.constants.PWR.THERMAL_POWER;
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.webCFD.webCFDapp.model.constants.PWR.SIZE;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,11 +15,20 @@ public class HeatGenerationFieldTest {
 	
 	
 	@Test
-	void elementEqualsOneInCenter() {
+	void elementShouldEqualsOneInCenter() {
 		
-		field.getField(1.00);
-		assertEquals(1*THERMAL_POWER, field.getElement(8, 8));
+		
+		assertEquals(THERMAL_POWER, field.getElement(8, 8, 1.00));
 	}
+	
+	@Test
+	void elementShouldEqualsInCenter() {
+		
+		double testCoeff = 1.5;
+		assertEquals(testCoeff*THERMAL_POWER, field.getElement(8, 8, testCoeff));
+	}
+	
+	
 	
 	/**
 	 * Checking if boundaries are zero's
@@ -28,8 +36,14 @@ public class HeatGenerationFieldTest {
 	
 	@Test
 	void checkBoundariesForZeros() {
-		field.getField(1.00);
-		assertEquals(1*THERMAL_POWER, field.getElement(8, 8));
+		
+		
+		
+		for (int i = 0; i < SIZE; i++) {
+			assertEquals(THERMAL_POWER, field.getElement(8, 8, 1.00));
+		}
+		
+		
 	}
 	
 	

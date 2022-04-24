@@ -9,7 +9,7 @@ public interface Field {
 	double [][] sparseField = new double [SIZE][SIZE];
 	
 	
-	double getElement(int i, int j);
+	double getElement(int i, int j, Double kQ);
 	
 	default void buildHeatGenerationField(Double kQ) {
 		
@@ -18,7 +18,7 @@ public interface Field {
 			for (int j = 0; j < SIZE-1; j++) {
 				
 				if ((i>0)&(j>0)&(i<SIZE)&(j<SIZE)) {
-					sparseField[i][j] = kQ*THERMAL_POWER*Math.cos(0.20279*i-1.6223)*Math.cos(0.17346*j-1.3877);
+					sparseField[i][j] = kQ*THERMAL_POWER*Math.cos(0.20279*i-1.6223)*Math.cos(0.17346*j-1.3877); 
 				} else {
 					sparseField[i][j] = 0;
 				}
