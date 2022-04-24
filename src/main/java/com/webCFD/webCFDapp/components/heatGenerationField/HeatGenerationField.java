@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
 
-import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.Field;
+import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.TemperatureField;
 
 /**
  * <h3> HeatGenerationField Class</h3>
@@ -24,7 +24,7 @@ import com.webCFD.webCFDapp.components.SteadyStateTemperatureField.Field;
  */
 @SuppressWarnings("unused")
 @Component
-public class HeatGenerationField implements Field{
+public class HeatGenerationField implements HeatGenerationFieldInterface{
 	
 	public double[][] getField(Double kQ) {
 		
