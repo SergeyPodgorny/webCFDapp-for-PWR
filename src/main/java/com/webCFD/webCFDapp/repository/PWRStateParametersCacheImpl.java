@@ -24,7 +24,7 @@ public class PWRStateParametersCacheImpl implements PWRStateParametersCache {
 	
 	
 	public void initializeCahce() {
-		
+		pWRStateParametersCache.put(null, null);
 	}
 	
 }
